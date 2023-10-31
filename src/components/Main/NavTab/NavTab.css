@@ -1,0 +1,36 @@
+.navTab {
+  background: #272727;
+  min-height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navTab__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  justify-content: space-between;
+
+}
+
+.navTab__link {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px; /* 123.077% */
+  text-decoration-line: underline;
+}
+
+.navTab__link:hover {
+    opacity: 0.5;
+    transition: 0.5s;
+}
+

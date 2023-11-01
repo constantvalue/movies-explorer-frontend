@@ -1,5 +1,73 @@
-.header{
-min-height: 74px;
-background: rebeccapurple;
+.header {
+  min-height: 74px;
+  background: #073042;
 }
 
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 70px;
+}
+
+.header__navigation {
+  display: flex;
+}
+
+.header__navigation-container {
+  align-items: center;
+  list-style: none;
+  display: flex;
+  padding: 0;
+  padding-left: 45px;
+  margin: 0;
+  gap: 16px;
+}
+
+.header__link {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: right;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 138.462% */
+}
+
+.header__logo {
+  margin: 0;
+  padding: 0;
+}
+
+.header__account-button {
+  background-color: #073042;
+  border: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 3px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.header__account-link {
+padding-right: 7px;
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px; /* 92.308% */
+}
+
+.header__account-logo {
+  min-width: 26px;
+  min-height: 26px;
+  background: url(../../images/icon__COLOR_icon-main.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  background-color: #0f4157;
+}

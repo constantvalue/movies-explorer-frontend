@@ -1,0 +1,129 @@
+.about__section {
+  background: #202020;
+  min-height: 604px;
+}
+
+.about__container {
+  padding: 110px 70px;
+}
+
+.about__title {
+  margin: 0;
+  color: #fff;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  /* text-decoration-line: underline; */
+  border-bottom: #dadada 1px solid;
+  padding-bottom: 23px;
+}
+
+.about__description {
+  display: flex;
+  padding-top: 70px;
+  gap: 40px;
+}
+
+.about__column {
+  min-width: 550px;
+}
+
+.about__heading {
+  margin: 0;
+  padding-bottom: 26px;
+  color: #fff;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.8px;
+}
+
+.about__text {
+  margin: 0;
+  color: #fff;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.about__deadlines {
+  padding: 110px 0 0;
+}
+
+.about__deadlines-grid {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  grid-template-areas:
+    "a b"
+    "c d";
+  display: grid;
+  grid-template-columns: 228px 1fr;
+  grid-template-rows: 36px;
+  row-gap: 14px;
+}
+
+.about__deadlines-week {
+  background: #3ddc84;
+  grid-area: a;
+  color: #000;
+  /* text-align: center; */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__deadlines-weeks {
+  background: #303030;
+  grid-area: b;
+  color: #fff;
+  /* text-align: center; */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__deadlines-backend {
+  grid-area: c;
+  color: #8b8b8b;
+  /* text-align: center; */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 121.429% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about__deadlines-frontend {
+  grid-area: d;
+  color: #8b8b8b;
+  /* text-align: center; */
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px; /* 121.429% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

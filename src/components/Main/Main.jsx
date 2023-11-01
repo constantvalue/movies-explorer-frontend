@@ -11,10 +11,10 @@ function Main() {
     <>
       <Promo />
       <NavTab />
-      <AboutProject/>
-      <Techs/>
-      <AboutMe/>
-      <Portfolio/>
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+      <Portfolio />
     </>
   );
 }

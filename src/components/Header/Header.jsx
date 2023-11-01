@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../images/logo_header.svg";
-import accountLogo from "../../images/icon__COLOR_icon-main.svg";
 function Header() {
   return (
     <section className="header">

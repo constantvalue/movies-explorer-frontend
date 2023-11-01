@@ -1,15 +1,14 @@
 import "./App.css";
 import Main from "../Main/Main";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import Page404 from "../Page404/Page404";
+import { Route, Routes } from "react-router";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer/>
-    </div>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="*" element={<Page404/>}/>
+    </Routes>
   );
 }
 

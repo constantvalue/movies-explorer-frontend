@@ -49,10 +49,18 @@
   list-style: none;
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.header__account-button:hover{
+  opacity: 0.5;
+  transition: 0.5s;
+  border:#fff 1px solid;
+  border-radius: 40px;
 }
 
 .header__account-link {
-padding-right: 7px;
+  padding-right: 7px;
   color: #fff;
   font-feature-settings: "clig" off, "liga" off;
   font-family: Inter;

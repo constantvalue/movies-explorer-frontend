@@ -1,7 +1,7 @@
 import React from "react";
 import "./AboutProject.css";
 
-function NavTab() {
+function AboutProject() {
   return (
     <section className="about__section">
       <div className="about__container">
@@ -28,19 +28,17 @@ function NavTab() {
           </div>
         </div>
 
-
-<div className="about__deadlines">
-    <ul className="about__deadlines-grid">
-        <li className="about__deadlines-week">1 неделя</li>
-        <li className="about__deadlines-weeks">4 недели</li>
-        <li className="about__deadlines-backend">Back-end</li>
-        <li className="about__deadlines-frontend">Front-end</li>
-    </ul>
-</div>
-
+        <div className="about__deadlines">
+          <ul className="about__deadlines-grid">
+            <li className="about__deadlines-week">1 неделя</li>
+            <li className="about__deadlines-weeks">4 недели</li>
+            <li className="about__deadlines-backend">Back-end</li>
+            <li className="about__deadlines-frontend">Front-end</li>
+          </ul>
+        </div>
       </div>
     </section>
   );
 }
 
-export default NavTab;
+export default AboutProject;

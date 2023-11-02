@@ -50,6 +50,12 @@
   top: 6px;
   height: 34px;
   width: 80px;
+  cursor: pointer;
+}
+
+.search__form-submit:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }
 
 .search__form-thumbler {
@@ -66,4 +72,6 @@
   padding-bottom: 69px;
   border-bottom: #424242 1px solid;
 }
+
+
 

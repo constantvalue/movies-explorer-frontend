@@ -1,23 +1,7 @@
 import "./MoviesCardList.css";
-import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList() {
-  return (
-    <ul className="movies__list">
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-        <MoviesCard/>
-    </ul>
-  );
+function MoviesCardList(props) {
+  return <ul className="movies__list">{props.children}</ul>;
 }
 
 export default MoviesCardList;

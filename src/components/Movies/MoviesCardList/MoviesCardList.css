@@ -1,0 +1,11 @@
+.movies__list {
+  background: #202020;
+  list-style: none;
+  margin: 0;
+  padding: 70px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 364px);
+  gap: 24px;
+  row-gap: 37px;
+  justify-content: center;
+}

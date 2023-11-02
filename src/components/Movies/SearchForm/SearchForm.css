@@ -63,5 +63,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+  padding-bottom: 69px;
+  border-bottom: #424242 1px solid;
 }
 

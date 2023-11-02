@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 
-.header__account-button:hover{
+.header__account-button:hover {
   opacity: 0.5;
   transition: 0.5s;
 }
@@ -86,8 +86,7 @@
   background-color: #0f4157;
 }
 
-
-.header__account-burger{
+.header__account-burger {
   padding: 0;
   display: none;
   background: url(../../images/burger__button.svg);
@@ -104,8 +103,6 @@
   transition: 0.5s;
 }
 
-
-
 @media screen and (max-width: 768px) {
   .header__container {
     padding: 18px 30px;
@@ -119,11 +116,10 @@
     display: none;
   }
 
-  .header__account-burger{
+  .header__account-burger {
     display: block;
   }
 }
-
 
 @media screen and (max-width: 320px) {
   .header__container {
@@ -138,7 +134,7 @@
     display: none;
   }
 
-  .header__account-burger{
+  .header__account-burger {
     display: block;
   }
 

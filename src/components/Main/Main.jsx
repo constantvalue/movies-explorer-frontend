@@ -11,14 +11,14 @@ import Header from "../Header/Header";
 function Main() {
   return (
     <div className="main">
-      <Header/>
+      <Header />
       <Promo />
       <NavTab />
       <AboutProject />
       <Techs />
       <AboutMe />
       <Portfolio />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

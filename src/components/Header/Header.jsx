@@ -19,9 +19,7 @@ function Header({ modifier, logoModifier }) {
           </ul>
         </nav>
 
-        <AccountButton
-    logoModifier
-        />
+        <AccountButton />
         {/* <button className="header__account-button">
           <a href="/profile" className="header__account-link">
             Аккаунт

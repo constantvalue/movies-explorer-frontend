@@ -89,6 +89,10 @@
 }
 
 @media screen and (max-width: 790px) {
+
+  .aboutme {
+    min-height: 604px;
+  }
   .aboutme__container {
     padding: 90px 50px 0;
   }
@@ -123,6 +127,11 @@
 }
 
 @media screen and (max-width: 650px) {
+
+  .aboutme {
+    min-height: 904px;
+  }
+
   .aboutme__title {
     font-size: 18px;
     padding-bottom: 28px;

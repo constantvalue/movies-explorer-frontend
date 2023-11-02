@@ -59,3 +59,40 @@
   line-height: 60px; /* 200% */
   letter-spacing: -1.2px;
 }
+
+@media screen and (max-width: 790px) {
+  .portfolio {
+    padding: 0 50px;
+  }
+
+  .portfolio__link {
+    font-size: 28px;
+    line-height: 50px; /* 178.571% */
+    letter-spacing: -1.12px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .portfolio {
+    padding: 0 14px;
+  }
+
+  .portfolio__link {
+    padding-bottom: 19px;
+    font-size: 18px;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__arrow {
+    font-size: 18px;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.72px;
+  }
+
+  .portfolio__heading {
+    font-size: 14px;
+    line-height: 20px; /* 142.857% */
+    padding-bottom: 40px;
+  }
+}

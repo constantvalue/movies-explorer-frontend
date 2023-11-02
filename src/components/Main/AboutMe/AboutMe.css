@@ -71,7 +71,7 @@
 }
 
 .aboutme__student-github {
-  padding-top: 99px;
+  margin-top: 99px;
   grid-area: d;
   color: #fff;
   font-family: Inter;
@@ -86,4 +86,80 @@
 .aboutme__student-avatar {
   grid-area: e;
   justify-self: end;
+}
+
+@media screen and (max-width: 790px) {
+  .aboutme__container {
+    padding: 90px 50px 0;
+  }
+
+  .aboutme__student-name {
+    font-size: 40px;
+    margin-top: -8px;
+  }
+  .aboutme__student-job {
+    padding-top: 16px;
+    font-size: 12px;
+    margin-top: -51px;
+  }
+
+  .aboutme__student-description {
+    font-size: 12px;
+    margin-top: -67px;
+    line-height: 18px;
+  }
+
+  .aboutme__bio {
+    grid-template-columns: minmax(320px, 364px) 1fr;
+  }
+
+  .aboutme__student-github {
+    margin: 0 0 1px;
+  }
+
+  .aboutme__student-avatar {
+    max-width: 255px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .aboutme__title {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .aboutme__container {
+    padding: 70px 14px 0;
+  }
+
+  .aboutme__bio {
+    padding-top: 60px;
+    grid-template-areas:
+      "e"
+      "a"
+      "b"
+      "c"
+      "d";
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    gap: 36px;
+  }
+  .aboutme__student-avatar {
+    min-width: 292px;
+    justify-self: center;
+  }
+
+  .aboutme__student-name {
+    font-size: 30px;
+  }
+  .aboutme__student-job {
+    margin-top: -45px;
+    font-size: 11px;
+  }
+
+  .aboutme__student-description {
+    line-height: 16px; /* 145.455% */
+    font-size: 11px;
+    margin-top: -52px;
+  }
 }

@@ -1,6 +1,6 @@
 .techs {
   background: #272727;
-  min-height: 625px;
+  /* min-height: 625px; */
 }
 
 .techs__container {
@@ -105,5 +105,38 @@
   .techs__list-item {
     font-size: 12px;
     letter-spacing: -0.48px;
+    height: 57px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .techs__list {
+    padding-top: 50px;
+    grid-template-columns: repeat(2, 84px);
+  }
+
+  .techs__count {
+    padding-top: 60px;
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    line-height: normal;
+  }
+
+  .techs__container {
+    padding: 70px 18px;
+  }
+
+  .techs__title {
+    padding-bottom: 28px;
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+
+  .techs__description {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px; /* 145.455% */
+    letter-spacing: -0.44px;
   }
 }

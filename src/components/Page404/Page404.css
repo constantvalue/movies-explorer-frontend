@@ -1,50 +1,53 @@
 .page404__container {
-    min-height: 100vh;
-    min-width: 100vw;
-    background: #202020;
-    display: flex;
-    flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
 }
-
 
 /* .page404__error-message {
 
 } */
 
 .page404__error-code {
-    padding-top: 246px;
-    margin:0;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 140px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  padding-top: 246px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 140px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .page404__error-caption {
-    padding-top: 5px;
-    margin:0;
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+  padding-top: 5px;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .page404__link {
-    padding-top: 184px;
-    margin:0;
-    color: #4285F4;
-    text-align: center;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
+  margin: 0;
+  margin-top: 184px;
+  color: #4285f4;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
 
+.page404__link:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }

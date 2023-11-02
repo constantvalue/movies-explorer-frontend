@@ -33,6 +33,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 138.462% */
+  text-decoration: none;
 }
 
 .header__logo {
@@ -67,7 +68,8 @@
   font-size: 13px;
   font-style: normal;
   font-weight: 500;
-  line-height: 12px; /* 92.308% */
+  line-height: 12px;
+  text-decoration: none; /* 92.308% */
 }
 
 .header__account-logo {

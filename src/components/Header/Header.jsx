@@ -8,14 +8,14 @@ function Header() {
         <nav className="header__navigation">
           <img className="header__logo" src={logo} alt="Лого" />
           <ul className="header__navigation-container">
-            <li className="header__link">Фильмы</li>
-            <li className="header__link">Сохранённые фильмы</li>
+            <a href="/movies" className="header__link">Фильмы</a>
+            <a href="/saved" className="header__link">Сохранённые фильмы</a>
           </ul>
         </nav>
         <button className="header__account-button">
-          <a className="header__account-link">Аккаунт</a>
+          <a href="/profile" className="header__account-link">Аккаунт</a>
 
-          <div className="header__account-logo"  />
+          <div className="header__account-logo" />
         </button>
       </div>
     </section>

@@ -162,3 +162,61 @@
     padding-bottom: 23px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .about__text {
+    font-size: 11px;
+    line-height: 16px; /* 150% */
+  }
+
+  .about__container {
+    padding: 70px 18px;
+  }
+
+  .about__description {
+    padding-top: 60px;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .about__deadlines-grid {
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 36px;
+    row-gap: 10px;
+  }
+
+  .about__deadlines {
+    padding-top: 60px;
+  }
+
+  .about__heading {
+    font-size: 18px;
+    padding-bottom: 16px;
+  }
+
+  .about__title {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .about__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about__deadlines-week {
+    font-size: 11px;
+  }
+
+  .about__deadlines-weeks {
+    font-size: 11px;
+  }
+
+  .about__deadlines-backend {
+    font-size: 11px;
+  }
+  
+  .about__deadlines-frontend {
+    font-size: 11px;
+  }
+}

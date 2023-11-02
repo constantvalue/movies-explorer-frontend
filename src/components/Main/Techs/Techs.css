@@ -53,13 +53,13 @@
   padding: 0;
   padding-top: 100px;
   list-style: none;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 90px);
   gap: 10px;
   justify-content: center;
 }
 
 .techs__list-item {
-  width: 90px;
   height: 60px;
   border-radius: 10px;
   background: #303030;
@@ -76,4 +76,34 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .techs__list {
+    grid-template-columns: repeat(auto-fit, 84px);
+  }
+
+  .techs__container {
+    padding: 90px 50px;
+  }
+
+  .techs__count {
+    padding-top: 80px;
+  }
+
+  .techs__description {
+    padding-top: 22px;
+    font-size: 12px;
+    line-height: 18px; /* 150% */
+    letter-spacing: -0.48px;
+  }
+
+  .techs__list {
+    padding-top: 83px;
+  }
+
+  .techs__list-item {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
 }

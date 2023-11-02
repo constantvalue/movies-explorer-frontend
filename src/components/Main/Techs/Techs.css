@@ -1,4 +1,4 @@
-.techs__section {
+.techs {
   background: #272727;
   min-height: 625px;
 }
@@ -58,7 +58,7 @@
   justify-content: center;
 }
 
-.tech__name {
+.techs__list-item {
   width: 90px;
   height: 60px;
   border-radius: 10px;

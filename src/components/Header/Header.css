@@ -1,6 +1,7 @@
 .header {
   min-height: 74px;
   background: #073042;
+  min-width: 320px;
 }
 
 .header__container {
@@ -36,6 +37,11 @@
   text-decoration: none;
 }
 
+.header__link:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
 .header__logo {
   margin: 0;
   padding: 0;
@@ -56,8 +62,6 @@
 .header__account-button:hover{
   opacity: 0.5;
   transition: 0.5s;
-  border:#fff 1px solid;
-  border-radius: 40px;
 }
 
 .header__account-link {
@@ -80,4 +84,65 @@
   background-repeat: no-repeat;
   border-radius: 50px;
   background-color: #0f4157;
+}
+
+
+.header__account-burger{
+  padding: 0;
+  display: none;
+  background: url(../../images/burger__button.svg);
+  cursor: pointer;
+  border: none;
+  width: 38px;
+  height: 38px;
+  background-position: center;
+  align-self: center;
+}
+
+.header__account-burger:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+
+@media screen and (max-width: 768px) {
+  .header__container {
+    padding: 18px 30px;
+  }
+
+  .header__navigation-container {
+    display: none;
+  }
+
+  .header__account-button {
+    display: none;
+  }
+
+  .header__account-burger{
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 320px) {
+  .header__container {
+    padding: 18px 14px;
+  }
+
+  .header__navigation-container {
+    display: none;
+  }
+
+  .header__account-button {
+    display: none;
+  }
+
+  .header__account-burger{
+    display: block;
+  }
+
+  .header__account-burger {
+    width: 35px;
+    height: 35px;
+  }
 }

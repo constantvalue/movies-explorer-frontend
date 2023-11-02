@@ -17,6 +17,9 @@ function Header() {
 
           <div className="header__account-logo" />
         </button>
+        <button className="header__account-burger">
+          
+        </button>
       </div>
     </section>
   );

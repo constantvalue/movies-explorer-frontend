@@ -14,7 +14,6 @@
   flex-direction: row;
   gap: 40px;
   justify-content: space-between;
-
 }
 
 .navTab__link {
@@ -30,7 +29,23 @@
 }
 
 .navTab__link:hover {
-    opacity: 0.5;
-    transition: 0.5s;
+  opacity: 0.5;
+  transition: 0.5s;
 }
 
+@media screen and (max-width: 320px) {
+  .promo {
+    min-height: 570px;
+    background-position: center 142px;
+    background-size: 248px;
+  }
+
+  .navTab__link {
+    text-align: center;
+    font-size: 11px;
+  }
+
+  .navTab__list {
+    gap: 24px;
+  }
+}

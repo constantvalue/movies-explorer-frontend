@@ -1,4 +1,4 @@
-.about__section {
+.about {
   background: #202020;
   min-height: 604px;
 }
@@ -23,13 +23,14 @@
 
 .about__description {
   display: flex;
+  flex-direction: row;
   padding-top: 70px;
-  gap: 40px;
+  gap: 50px;
 }
 
-.about__column {
+/* .about__column {
   min-width: 550px;
-}
+} */
 
 .about__heading {
   margin: 0;
@@ -126,4 +127,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* .about__column {
+  display: flex;
+  flex-direction: column;
+} */
+
+@media screen and (max-width: 768px) {
+  .about__text {
+    font-size: 12px;
+    line-height: 18px; /* 150% */
+  }
+
+  .about__container {
+    padding: 90px 50px;
+  }
+
+  .about__description {
+    gap: 35px;
+  }
+
+  .about__deadlines-grid {
+    grid-template-columns: 140px 1fr;
+    grid-template-rows: 36px;
+    row-gap: 14px;
+  }
+
+  .about__deadlines {
+    padding: 93px 0 0;
+  }
+
+  .about__heading {
+    padding-bottom: 23px;
+  }
 }

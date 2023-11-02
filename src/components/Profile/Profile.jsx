@@ -3,7 +3,7 @@ import Header from "../Header/Header";
 
 function Profile() {
   return (
-    <section className="profile__section">
+    <section className="profile">
       <Header />
       <div className="profile__container">
         <h2 className="profile__greeting">Привет, Виталий!</h2>

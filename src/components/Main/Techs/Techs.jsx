@@ -3,7 +3,7 @@ import "./Techs.css";
 
 function Techs() {
   return (
-    <section className="techs__section" id="Techs">
+    <section className="techs" id="Techs">
       <div className="techs__container">
         <h2 className="techs__title">Технологии</h2>
         <p className="techs__count">7 технологий</p>
@@ -12,13 +12,13 @@ function Techs() {
           дипломном проекте.
         </p>
         <ul className="techs__list">
-          <li className="tech__name">HTML</li>
-          <li className="tech__name">CSS</li>
-          <li className="tech__name">JS</li>
-          <li className="tech__name">React</li>
-          <li className="tech__name">Git</li>
-          <li className="tech__name">Express.js</li>
-          <li className="tech__name">mongoDB</li>
+          <li className="techs__list-item">HTML</li>
+          <li className="techs__list-item">CSS</li>
+          <li className="techs__list-item">JS</li>
+          <li className="techs__list-item">React</li>
+          <li className="techs__list-item">Git</li>
+          <li className="techs__list-item">Express.js</li>
+          <li className="techs__list-item">mongoDB</li>
         </ul>
       </div>
     </section>

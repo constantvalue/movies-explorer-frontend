@@ -1,9 +1,11 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../images/logo_header.svg";
-function Header() {
+import AccountButton from "../AccountButton/AccountButton";
+
+function Header({ modifier, logoModifier }) {
   return (
-    <section className="header">
+    <section className={`header ${modifier}`}>
       <div className="header__container">
         <nav className="header__navigation">
           <img className="header__logo" src={logo} alt="Лого" />
@@ -16,13 +18,17 @@ function Header() {
             </a>
           </ul>
         </nav>
-        <button className="header__account-button">
+
+        <AccountButton
+    logoModifier
+        />
+        {/* <button className="header__account-button">
           <a href="/profile" className="header__account-link">
             Аккаунт
           </a>
 
           <div className="header__account-logo" />
-        </button>
+        </button> */}
         <button className="header__account-burger"></button>
       </div>
     </section>

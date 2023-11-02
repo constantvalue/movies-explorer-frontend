@@ -1,9 +1,9 @@
 import "./SearchForm.css";
-// import FilterCheckbox from "../FilterCheckbox/FilterCheckbox"
+import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 
 function SearchForm() {
   return (
-    <section className="searchform__section">
+    <section className="search">
       <form className="search__form">
         <div className="search__form-input-container">
           <input
@@ -11,10 +11,11 @@ function SearchForm() {
             placeholder="Фильм"
             type="text"
           ></input>
-          <input className="search__form-submit" type="submit"></input>
+          <input className="search__form-submit" value="" type="submit"></input>
         </div>
         <div className="search__form-thumbler">
-            {/* <FilterCheckbox text="Короткометражки"/> */}
+          <ToggleSwitch />
+          <span className="switch__title">Короткометражки</span>
         </div>
       </form>
     </section>

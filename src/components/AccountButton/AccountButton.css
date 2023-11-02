@@ -1,0 +1,46 @@
+.header__account-button {
+  background-color: #073042;
+  border: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 3px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.header__account-button:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.header__account-link {
+  padding-right: 7px;
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  text-decoration: none; /* 92.308% */
+}
+
+.header__account-logo {
+  min-width: 26px;
+  min-height: 26px;
+  background: url(../../images/icon__COLOR_icon-main.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50px;
+  background-color: #0f4157;
+}
+
+.header__account-button-dark {
+    background: #202020;
+  }
+
+  .header__account-logo-dark {
+    background-color: #313131;
+  } 

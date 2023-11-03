@@ -18,13 +18,13 @@ function Movies() {
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
+        {/* <MoviesCard />
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
         <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
+        <MoviesCard /> */}
       </MoviesCardList>
       <MoviesMoreButton />
       <Footer />

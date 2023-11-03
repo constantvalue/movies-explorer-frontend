@@ -13,7 +13,7 @@ function Header({ modifier, logoModifier }) {
             <a href="/movies" className="header__link">
               Фильмы
             </a>
-            <a href="/saved" className="header__link">
+            <a href="/saved-movies" className="header__link">
               Сохранённые фильмы
             </a>
           </ul>

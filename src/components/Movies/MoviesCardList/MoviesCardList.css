@@ -9,3 +9,20 @@
   row-gap: 37px;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .movies__list {
+    grid-template-columns: repeat(auto-fit, 339px);
+    gap: 30px;
+    row-gap: 30px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movies__list {
+    grid-template-columns: repeat(auto-fit, 300px);
+    gap: 30px;
+    row-gap: 14px;
+    padding-top: 40px;
+  }
+}

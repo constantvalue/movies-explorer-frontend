@@ -42,12 +42,11 @@
   transition: 0.5s;
 }
 
-.header__logo {
+.header__logo-container {
   margin: 0;
   padding: 0;
 }
-
-.header__logo:hover {
+.header__logo-container:hover {
   opacity: 0.5;
   transition: 0.5s;
 }

@@ -6,13 +6,13 @@
   max-width: 1280px;
   margin: 0 auto;
   background: #202020;
+  min-height: 100vh;
 }
 
 .profile__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
 }
 
 .profile__greeting {

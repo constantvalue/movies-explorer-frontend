@@ -11,14 +11,15 @@ function SavedMovies() {
   return (
     <div className="movies">
       <Header />
-      <SearchForm />
-      <MoviesCardList>
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-      </MoviesCardList>
-      {/* <MoviesMoreButton /> */}
-      <SavedMoviesDivider/>
+      <div className="movies__content">
+        <SearchForm />
+        <MoviesCardList>
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+        </MoviesCardList>
+        <SavedMoviesDivider />
+      </div>
       <Footer />
     </div>
   );

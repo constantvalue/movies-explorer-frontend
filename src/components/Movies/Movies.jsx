@@ -11,22 +11,24 @@ function Movies() {
   return (
     <div className="movies">
       <Header />
-      <SearchForm />
-      <MoviesCardList>
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        {/* <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard /> */}
-      </MoviesCardList>
-      <MoviesMoreButton />
+      <div className="movies__content">
+        <SearchForm />
+        <MoviesCardList>
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+          <MoviesCard />
+        </MoviesCardList>
+        <MoviesMoreButton />
+      </div>
       <Footer />
     </div>
   );

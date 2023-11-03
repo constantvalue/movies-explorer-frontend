@@ -1,6 +1,7 @@
 .footer {
   background: #202020;
   padding: 79px 70px 0;
+  /* justify-self: flex-end; */
 }
 
 .footer__text {

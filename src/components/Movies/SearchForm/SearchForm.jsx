@@ -15,7 +15,7 @@ function SearchForm() {
         </div>
         <div className="search__form-thumbler">
           <ToggleSwitch />
-          <span className="switch__title">Короткометражки</span>
+          <span className="search__form-thumbler-title">Короткометражки</span>
         </div>
       </form>
     </section>

@@ -5,7 +5,9 @@ function Register() {
   return (
     <section className="register">
       <div className="register__container">
-        <img src={logo} className="register__logo" alt="лого"></img>
+        <a className="register__logo" href="/">
+          <img src={logo} alt="лого"></img>
+        </a>
         <h2 className="register__greeting">Добро пожаловать!</h2>
         <form className="register__form">
           <ul className="register__inputs">
@@ -50,7 +52,7 @@ function Register() {
             Зарегестрироваться
           </button>
           <span className="register__submit-span">
-            Уже зарегистрированы?
+            Уже зарегистрированы?{"  "}
             <a href="/login" className="register__signin">
               Войти
             </a>

@@ -7,7 +7,7 @@
 .header__container {
   display: flex;
   justify-content: space-between;
-  padding: 18px 70px;
+  padding: 18px 70px 14px;
 }
 
 .header__navigation {
@@ -110,7 +110,7 @@
 
 @media screen and (max-width: 768px) {
   .header__container {
-    padding: 18px 30px;
+    padding: 18px 30px 14px;
   }
 
   .header__navigation-container {
@@ -128,7 +128,7 @@
 
 @media screen and (max-width: 320px) {
   .header__container {
-    padding: 18px 14px;
+    padding: 18px 14px 14px;
   }
 
   .header__navigation-container {

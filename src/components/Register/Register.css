@@ -1,0 +1,109 @@
+.register {
+  background: #202020;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.register__container {
+}
+
+.register__logo {
+}
+
+.register__greeting {
+  color: #fff;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.register__form {
+}
+
+.register__inputs {
+  list-style: none;
+}
+
+.register__inputs-item {
+}
+
+.register__input-label {
+  color: #8b8b8b;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.register__input {
+  color: #fff;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 396px;
+  height: 46px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 8px;
+  background: #2f2f2f;
+}
+
+.register__input:focus {
+  background-color: #556681;
+  outline: 1px solid #4285f4;
+}
+
+.register__input-span {
+  color: #ee3465;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.register__input_error::placeholder {
+  color: #ee3465;
+}
+
+.register__submit {
+  color: #fff;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  border-radius: 3px;
+  background: #4285f4;
+  width: 396px;/
+  height: 45px;
+  border: none;
+}
+
+.register__signin {
+  color: #4285f4;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.register__submit-span {
+  color: #8b8b8b;
+  text-align: center;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

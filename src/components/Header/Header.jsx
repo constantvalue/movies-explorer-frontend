@@ -8,7 +8,10 @@ function Header({ modifier, logoModifier }) {
     <section className={`header ${modifier}`}>
       <div className="header__container">
         <nav className="header__navigation">
-          <img className="header__logo" src={logo} alt="Лого" />
+          <a  className="header__logo" href="/">
+            <img  src={logo} alt="Лого" />
+          </a>
+
           <ul className="header__navigation-container">
             <a href="/movies" className="header__link">
               Фильмы

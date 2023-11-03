@@ -51,3 +51,26 @@
   opacity: 0.5;
   transition: 0.5s;
 }
+
+@media screen and (max-width: 768px) {
+  .page404__error-code {
+    padding-top: 408px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .page404__error-code {
+    padding-top: 329px;
+    font-size: 80px;
+  }
+
+  .page404__error-caption {
+    padding-top: 10px;
+    font-size: 12px;
+  }
+
+  .page404__link {
+    margin-top: 284px;
+    font-size: 12px;
+  }
+}

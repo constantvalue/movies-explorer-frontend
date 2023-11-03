@@ -91,9 +91,9 @@
   cursor: pointer;
 }
 
-.profile__edit:hover{
-    opacity: 0.5;
-    transition: 0.5s;
+.profile__edit:hover {
+  opacity: 0.5;
+  transition: 0.5s;
 }
 
 .profile__logout {
@@ -108,7 +108,46 @@
   text-decoration: none;
 }
 
-.profile__logout:hover{
-    opacity: 0.5;
-    transition: 0.5s;
+.profile__logout:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__greeting {
+    padding-top: 232px;
+  }
+  .profile__form {
+    padding-top: 96px;
+  }
+
+  .profile__edit {
+    margin-top: 205px;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .profile__form {
+    padding-top: 123px;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
+  }
+
+  .profile__greeting {
+    padding-top: 66px;
+  }
+
+  .profile__form {
+    padding-top: 80px;
+  }
+
+  .profile__edit {
+    margin-top: 375px;
+    font-size: 12px;
+  }
+
+  .profile__logout {
+    font-size: 12px;
+  }
 }

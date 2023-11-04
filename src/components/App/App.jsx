@@ -23,8 +23,8 @@ function App() {
       </Routes>
       {/* костыльная реализация. На следующем этапе переделаю */}
       <BurgerMenu
-        logoDark="header__account-logo-dark"
-        buttonDark="header__account-button-dark"
+        logoDark="logo-dark"
+        buttonDark="button-dark"
       />
     </>
   );

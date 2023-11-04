@@ -10,22 +10,26 @@ import MoviesCard from "./MoviesCard/MoviesCard";
 function Movies(props) {
   return (
     <div className="movies">
-      <Header headerDark="header_dark" logoDark="header__account-logo-dark" buttonDark="header__account-button-dark"/>
+      <Header
+        headerDark="header_dark"
+        logoDark="logo-dark"
+        buttonDark="button-dark"
+      />
       <div className="movies__content">
         <SearchForm />
         <MoviesCardList>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
-          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
+          <MoviesCard props={"movie__like-button"} />
         </MoviesCardList>
         <MoviesMoreButton />
       </div>

@@ -11,7 +11,7 @@ import Header from "../Header/Header";
 function Main() {
   return (
     <div className="main">
-      <Header />
+      <Header headerDark="" logoDark="" buttonDark="" />
       <Promo />
       <NavTab />
       <AboutProject />

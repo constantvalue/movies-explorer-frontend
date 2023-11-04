@@ -2,12 +2,7 @@ import React from "react";
 import "./Header.css";
 import logo from "../../images/logo_header.svg";
 import AccountButton from "../AccountButton/AccountButton";
-
-// const [isBurgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
-
-// function handleOpenBurgerMenu() {
-//   setIsBurgerMenuOpen(true);
-// }
+import { useEffect, useState } from "react";
 
 // костыльная реализация для этапа по верстке. Потом переделаю на стейты
 function openBurger() {
@@ -15,6 +10,28 @@ function openBurger() {
 }
 
 function Header(props) {
+  // const windowWidth = useRef(window.innerWidth);
+
+  //https://bobbyhadz.com/blog/react-get-window-width-height
+  const [windowSize, setWindowSize] = useState(getWindowSize());
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWindowSize(getWindowSize());
+    }
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [windowSize]);
+
+  function getWindowSize() {
+    const { innerWidth } = window;
+    return { innerWidth };
+  }
+
   return (
     <section className={`header ${props.headerDark}`}>
       <div className="header__container">
@@ -32,12 +49,11 @@ function Header(props) {
             </a>
           </ul>
         </nav>
-
         <AccountButton
           logoDark={props.logoDark}
           buttonDark={props.buttonDark}
+          visibility={window.innerWidth < 769 ? "account-button_invisible" : ""}
         />
-
         <button
           className="header__account-burger"
           onClick={openBurger}

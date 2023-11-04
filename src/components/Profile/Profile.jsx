@@ -6,8 +6,8 @@ function Profile() {
     <section className="profile">
       <Header
         headerDark="header_dark"
-        logoDark="header__account-logo-dark"
-        buttonDark="header__account-button-dark"
+        logoDark="logo-dark"
+        buttonDark="button-dark"
       />
       <div className="profile__container">
         <h2 className="profile__greeting">Привет, Виталий!</h2>

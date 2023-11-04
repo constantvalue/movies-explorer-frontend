@@ -3,12 +3,14 @@ import "./AccountButton.css";
 
 function AccountButton(props) {
   return (
-    <button className={`header__account-button ${props.buttonDark}`}>
-      <a href="/profile" className="header__account-link">
+    <button
+      className={`account-button ${props.buttonDark} ${props.visibility}`}
+    >
+      <a href="/profile" className="account-button__link">
         Аккаунт
       </a>
 
-      <div className={`header__account-logo ${props.logoDark}`} />
+      <div className={`account-button__logo ${props.logoDark}`} />
     </button>
   );
 }

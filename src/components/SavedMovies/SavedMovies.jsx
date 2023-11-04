@@ -12,8 +12,8 @@ function SavedMovies() {
     <div className="movies">
       <Header
         headerDark="header_dark"
-        logoDark="header__account-logo-dark"
-        buttonDark="header__account-button-dark"
+        logoDark="logo-dark"
+        buttonDark="button-dark"
       />
       <div className="movies__content">
         <SearchForm />

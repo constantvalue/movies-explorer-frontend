@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.burger-menu_link {
+.burger-menu__link {
   margin: 0;
   color: #fff;
   text-align: center;
@@ -41,7 +41,7 @@
   text-decoration: none;
 }
 
-.burger-menu_link:hover {
+.burger-menu__link:hover {
   opacity: 0.5;
   transition: 0.5s;
 }
@@ -50,8 +50,13 @@
   flex-grow: 1;
 }
 
-.burger-menu_link:first-of-type {
+.burger-menu__link:first-of-type {
   padding-top: 159px;
+}
+
+.burger-menu__link_active {
+  text-decoration: underline 2px;
+  text-underline-offset: 4px;
 }
 
 .burger-menu_link:last-of-type {

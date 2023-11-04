@@ -10,13 +10,17 @@ import SavedMoviesDivider from "./SavedMoviesDivider/SavedMoviesDivider";
 function SavedMovies() {
   return (
     <div className="movies">
-      <Header />
+      <Header
+        headerDark="header_dark"
+        logoDark="header__account-logo-dark"
+        buttonDark="header__account-button-dark"
+      />
       <div className="movies__content">
         <SearchForm />
         <MoviesCardList>
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
+          <MoviesCard props={"movie__delete-button"} />
+          <MoviesCard props={"movie__delete-button"} />
+          <MoviesCard props={"movie__delete-button"} />
         </MoviesCardList>
         <SavedMoviesDivider />
       </div>

@@ -4,7 +4,11 @@ import Header from "../Header/Header";
 function Profile() {
   return (
     <section className="profile">
-      <Header />
+      <Header
+        headerDark="header_dark"
+        logoDark="header__account-logo-dark"
+        buttonDark="header__account-button-dark"
+      />
       <div className="profile__container">
         <h2 className="profile__greeting">Привет, Виталий!</h2>
         <form className="profile__form">

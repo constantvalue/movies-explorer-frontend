@@ -1,0 +1,76 @@
+.burger-menu {
+  display: flex;
+  visibility: hidden;
+  transition: ease 0.3s;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  height: 100vh;
+  justify-content: flex-end;
+  transition: opacity 0.5s, visibility 0.4s;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.burger-menu_active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.burger-menu__container {
+  height: 100%;
+  width: 520px;
+  background: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.burger-menu_link {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-bottom: 28px;
+  text-decoration: none;
+}
+
+.burger-menu_link:hover {
+  opacity: 0.5;
+  transition: 0.5s;
+}
+
+.cont {
+  flex-grow: 1;
+}
+
+.burger-menu_link:first-of-type {
+  padding-top: 159px;
+}
+
+.burger-menu_link:last-of-type {
+  /* padding-bottom: 621px; */
+}
+
+.burger-menu__close-button {
+  background-image: url(../../images/burger_close.svg);
+  height: 22px;
+  width: 22px;
+  background-color: transparent;
+  background-position: center;
+  border: none;
+  position: fixed;
+  right: 22.4px;
+  top: 22.4px;
+}
+
+.burger-menu__account-button {
+  position: fixed;
+  bottom: 90px;
+}

@@ -4,6 +4,10 @@
   min-width: 320px;
 }
 
+.header_dark {
+  background: #202020;
+}
+
 .header__container {
   display: flex;
   justify-content: space-between;

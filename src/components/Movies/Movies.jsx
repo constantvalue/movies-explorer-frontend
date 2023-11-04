@@ -7,25 +7,25 @@ import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 import MoviesCard from "./MoviesCard/MoviesCard";
 
-function Movies() {
+function Movies(props) {
   return (
     <div className="movies">
-      <Header />
+      <Header headerDark="header_dark" logoDark="header__account-logo-dark" buttonDark="header__account-button-dark"/>
       <div className="movies__content">
         <SearchForm />
         <MoviesCardList>
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
-          <MoviesCard />
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
+          <MoviesCard props={'movie__like-button'}/>
         </MoviesCardList>
         <MoviesMoreButton />
       </div>

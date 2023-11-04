@@ -19,13 +19,10 @@ function App() {
         <Route path="*" element={<Page404 />} />
         <Route path="/saved-movies" element={<SavedMovies />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/signup" element={<Register />} />
       </Routes>
       {/* костыльная реализация. На следующем этапе переделаю */}
-      <BurgerMenu
-        logoDark="logo-dark"
-        buttonDark="button-dark"
-      />
+      <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
     </>
   );
 }

@@ -4,15 +4,15 @@ import Header from "../Header/Header";
 function Profile() {
   return (
     <>
-      <header>
-        <Header
-          headerDark="header_dark"
-          logoDark="logo-dark"
-          buttonDark="button-dark"
-        />
-      </header>
-
       <section className="profile">
+        <header>
+          <Header
+            headerDark="header_dark"
+            logoDark="logo-dark"
+            buttonDark="button-dark"
+          />
+        </header>
+
         <div className="profile__container">
           <h2 className="profile__greeting">Привет, Виталий!</h2>
           <form className="profile__form">
@@ -40,14 +40,14 @@ function Profile() {
                 ></input>
               </li>
             </ul>
-            <button type="submit" className="profile__edit">
-              Редактировать
-            </button>
-            <a href="/" className="profile__logout">
-              Выйти из аккаунта
-            </a>
           </form>
         </div>
+        <button type="submit" className="profile__edit">
+          Редактировать
+        </button>
+        <a href="/" className="profile__logout">
+          Выйти из аккаунта
+        </a>
       </section>
     </>
   );

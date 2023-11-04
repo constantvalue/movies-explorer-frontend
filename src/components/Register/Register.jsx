@@ -48,7 +48,11 @@ function Register() {
               </span>
             </li>
           </ul>
-          <button type="submit" className="register__submit">
+
+        </form>
+
+      </div>
+      <button type="submit" className="register__submit">
             Зарегестрироваться
           </button>
           <span className="register__submit-span">
@@ -57,8 +61,6 @@ function Register() {
               Войти
             </a>
           </span>
-        </form>
-      </div>
     </section>
   );
 }

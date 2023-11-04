@@ -35,17 +35,17 @@ function Login() {
               <span className="login__input-span">Что-то пошло не так...</span>
             </li>
           </ul>
-          <button type="submit" className="login__submit">
-            Войти
-          </button>
-          <span className="login__submit-span">
-            Ещё не зарегистрированы?{"  "}
-            <a href="/signup" className="login__signin">
-              Регистрация
-            </a>
-          </span>
         </form>
       </div>
+      <button type="submit" className="login__submit">
+        Войти
+      </button>
+      <span className="login__submit-span">
+        Ещё не зарегистрированы?{"  "}
+        <a href="/signup" className="login__signin">
+          Регистрация
+        </a>
+      </span>
     </section>
   );
 }

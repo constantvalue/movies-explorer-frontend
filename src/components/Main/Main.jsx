@@ -10,16 +10,25 @@ import Header from "../Header/Header";
 
 function Main() {
   return (
-    <div className="main">
+    <>
+      <header>
       <Header headerDark="" logoDark="" buttonDark="" />
-      <Promo />
-      <NavTab />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
-      <Portfolio />
-      <Footer />
-    </div>
+      </header>
+
+      <main className="main">
+      
+        <Promo />
+        <NavTab />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+        <Portfolio />
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }
 

@@ -2,6 +2,8 @@
   min-height: 74px;
   background: #073042;
   min-width: 320px;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .header_dark {
@@ -42,7 +44,7 @@
 }
 
 .header__link:hover {
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.5s;
 }
 
@@ -51,7 +53,7 @@
   padding: 0;
 }
 .header__logo-container:hover {
-  opacity: 0.5;
+  opacity: 0.8;
   transition: 0.5s;
 }
 
@@ -68,7 +70,7 @@
 }
 
 .header__account-button:hover {
-  opacity: 0.5;
+  opacity: 0.8;
   transition: 0.5s;
 }
 
@@ -100,14 +102,15 @@
   background: url(../../images/burger__button.svg);
   cursor: pointer;
   border: none;
+  background-repeat: no-repeat;
   width: 38px;
   height: 38px;
-  background-position: center;
+  background-position: -6px -4px;
   align-self: center;
 }
 
 .header__account-burger:hover {
-  opacity: 0.5;
+  opacity: 0.8;
   transition: 0.5s;
 }
 
@@ -147,7 +150,10 @@
   }
 
   .header__account-burger {
+    background-position: center;
     width: 35px;
     height: 35px;
+    background-size: 100%;
+    background-position: -2px -2px;
   }
 }

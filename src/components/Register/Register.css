@@ -121,6 +121,12 @@
   width: 396px;
   height: 45px;
   border: none;
+  cursor: pointer;
+}
+
+.register__submit:hover {
+  opacity: 0.8;
+  transition: 0.5s;
 }
 
 .register__signin {

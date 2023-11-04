@@ -12,17 +12,20 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 function App() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<Page404 />} />
-        <Route path="/saved-movies" element={<SavedMovies />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Register />} />
-      </Routes>
-      {/* костыльная реализация. На следующем этапе переделаю */}
-      <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
+      <div className="app">
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<Page404 />} />
+          <Route path="/saved-movies" element={<SavedMovies />} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+        </Routes>
+        </div>
+        {/* костыльная реализация. На следующем этапе переделаю */}
+        <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
+      
     </>
   );
 }

@@ -53,7 +53,7 @@ function Register() {
           </button>
           <span className="register__submit-span">
             Уже зарегистрированы?{"  "}
-            <a href="/login" className="register__signin">
+            <a href="/signin" className="register__signin">
               Войти
             </a>
           </span>

@@ -9,23 +9,31 @@ import SavedMoviesDivider from "./SavedMoviesDivider/SavedMoviesDivider";
 
 function SavedMovies() {
   return (
-    <div className="movies">
-      <Header
-        headerDark="header_dark"
-        logoDark="logo-dark"
-        buttonDark="button-dark"
-      />
-      <div className="movies__content">
-        <SearchForm />
-        <MoviesCardList>
-          <MoviesCard props={"movie__delete-button"} />
-          <MoviesCard props={"movie__delete-button"} />
-          <MoviesCard props={"movie__delete-button"} />
-        </MoviesCardList>
-        <SavedMoviesDivider />
-      </div>
-      <Footer />
-    </div>
+    <>
+      <header>
+        <Header
+          headerDark="header_dark"
+          logoDark="logo-dark"
+          buttonDark="button-dark"
+        />
+      </header>
+
+      <main className="movies">
+        <div className="movies__content">
+          <SearchForm />
+          <MoviesCardList>
+            <MoviesCard props={"movie__delete-button"} />
+            <MoviesCard props={"movie__delete-button"} />
+            <MoviesCard props={"movie__delete-button"} />
+          </MoviesCardList>
+          <SavedMoviesDivider />
+        </div>
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
+    </>
   );
 }
 

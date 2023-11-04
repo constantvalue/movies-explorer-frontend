@@ -42,7 +42,7 @@
 }
 
 .burger-menu__link:hover {
-  opacity: 0.5;
+  opacity: 0.7;
   transition: 0.5s;
 }
 
@@ -73,6 +73,12 @@
   position: fixed;
   right: 26.4px;
   top: 26.4px;
+  cursor: pointer;
+}
+
+.burger-menu__close-button:hover {
+  opacity: 0.8;
+  transition: 0.5s;
 }
 
 .burger-menu__account-button {

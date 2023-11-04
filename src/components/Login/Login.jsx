@@ -40,7 +40,7 @@ function Login() {
           </button>
           <span className="login__submit-span">
             Ещё не зарегистрированы?{"  "}
-            <a href="/register" className="login__signin">
+            <a href="/signup" className="login__signin">
               Регистрация
             </a>
           </span>

@@ -33,7 +33,7 @@ function Header(props) {
   }
 
   return (
-    <section className={`header ${props.headerDark}`}>
+    <div className={`header ${props.headerDark}`}>
       <div className="header__container">
         <nav className="header__navigation">
           <a className="header__logo-container" href="/">
@@ -59,7 +59,7 @@ function Header(props) {
           onClick={openBurger}
         ></button>
       </div>
-    </section>
+    </div>
   );
 }
 

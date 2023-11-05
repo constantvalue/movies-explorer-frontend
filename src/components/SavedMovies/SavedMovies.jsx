@@ -26,7 +26,6 @@ function SavedMovies() {
             <MoviesCard props={"movie__delete-button"} />
             <MoviesCard props={"movie__delete-button"} />
           </MoviesCardList>
-          <SavedMoviesDivider />
         </div>
       </main>
 

@@ -22,10 +22,9 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
         </Routes>
-        </div>
-        {/* костыльная реализация. На следующем этапе переделаю */}
-        <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
-      
+      </div>
+      {/* костыльная реализация. На следующем этапе переделаю */}
+      <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
     </>
   );
 }

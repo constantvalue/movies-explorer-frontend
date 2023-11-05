@@ -48,19 +48,17 @@ function Register() {
               </span>
             </li>
           </ul>
-
         </form>
-
       </div>
       <button type="submit" className="register__submit">
-            Зарегестрироваться
-          </button>
-          <span className="register__submit-span">
-            Уже зарегистрированы?{"  "}
-            <a href="/signin" className="register__signin">
-              Войти
-            </a>
-          </span>
+        Зарегестрироваться
+      </button>
+      <span className="register__submit-span">
+        Уже зарегистрированы?{"  "}
+        <a href="/signin" className="register__signin">
+          Войти
+        </a>
+      </span>
     </section>
   );
 }

@@ -10,16 +10,16 @@ import MoviesCard from "./MoviesCard/MoviesCard";
 function Movies(props) {
   return (
     <>
-      <header>
-        <Header
-          headerDark="header_dark"
-          logoDark="logo-dark"
-          buttonDark="button-dark"
-        />
-      </header>
+      
+        <header>
+          <Header
+            headerDark="header_dark"
+            logoDark="logo-dark"
+            buttonDark="button-dark"
+          />
+        </header>
 
-      <main className="movies">
-        <div className="movies__content">
+        <main className="movies">
           <SearchForm />
           <MoviesCardList>
             <MoviesCard props={"movie__like-button"} />
@@ -36,12 +36,12 @@ function Movies(props) {
             <MoviesCard props={"movie__like-button"} />
           </MoviesCardList>
           <MoviesMoreButton />
-        </div>
-      </main>
+        </main>
 
-      <footer>
-        <Footer />
-      </footer>
+        <footer>
+          <Footer />
+        </footer>
+     
     </>
   );
 }

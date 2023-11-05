@@ -12,11 +12,10 @@ function Main() {
   return (
     <>
       <header>
-      <Header headerDark="" logoDark="" buttonDark="" />
+        <Header headerDark="" logoDark="" buttonDark="" />
       </header>
 
       <main className="main">
-      
         <Promo />
         <NavTab />
         <AboutProject />

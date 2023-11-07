@@ -50,6 +50,7 @@
 }
 
 .register__inputs {
+  width: 100%;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -73,24 +74,24 @@
 
 .register__input {
   margin: 0;
-  padding: 0;
+  padding: 15px;
   color: #fff;
   font-family: "Inter", "Arial", sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 396px;
-  height: 46px;
+  /* width: 396px; */
+  /* height: 46px;  */
   flex-shrink: 0;
   border: none;
   border-radius: 8px;
   background: #2f2f2f;
 }
 
-.register__input::placeholder {
+/* .register__input::placeholder {
   padding-left: 15px;
-}
+} */
 
 .register__input:focus {
   background-color: #556681;
@@ -107,7 +108,7 @@
   line-height: normal;
 }
 
-.register__input_error::placeholder {
+.register__input_error {
   color: #ee3465;
 }
 
@@ -127,6 +128,11 @@
   height: 45px;
   border: none;
   cursor: pointer;
+}
+
+.register__submit_disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
 }
 
 .register__submit:hover {
@@ -173,9 +179,10 @@
     padding-top: 56px;
   }
 
-  .register__input {
-    width: 260px;
+  .register__form {
+    max-width: 260px;
   }
+
   .register__submit {
     width: 260px;
     margin-top: 157px;
@@ -199,6 +206,7 @@
 
   .register__submit-span {
     margin-top: 14px;
+    max-width: 260px;
     font-size: 12px;
   }
   .register__signin {

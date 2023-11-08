@@ -55,12 +55,11 @@ function App() {
   };
 
   const handleLogout = () => {
+    //логаут производится при помощи удаления всего из локального хранилища (в том числе и токена)
     localStorage.clear();
     setLoggedIn(false);
     navigate("/");
   };
-
-  console.log(loggedIn);
 
   return (
     <>

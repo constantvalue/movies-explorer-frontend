@@ -4,8 +4,6 @@ import { useLocation } from "react-router";
 
 function BurgerMenu(props) {
   const location = useLocation();
-
-  console.log(location.pathname);
   // костыльная реализация. На следующем этапе переделаю
   function onClick() {
     document

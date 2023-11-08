@@ -11,6 +11,8 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { api } from "../../utils/api";
 import { useEffect, useState } from "react";
 import * as auth from "../../utils/auth";
+import { CurrentUserContext } from "../../utils/CurrentUserContext";
+import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const [isInfoTooltipPopupOpen, setIsInfotooltipPopupOpen] = useState(false);
@@ -18,7 +20,9 @@ function App() {
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  //стейт контекста.
   const [currentUser, setCurrentUser] = useState({});
+  console.log(currentUser);
   const [cards, setCards] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
@@ -27,7 +31,7 @@ function App() {
 
   useEffect(() => {
     handleTokenCheck();
-  }, []);
+  }, [loggedIn]);
 
   const handleTokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
@@ -35,9 +39,6 @@ function App() {
       auth
         .checkTokenValidity(jwt)
         .then((res) => {
-          // setUserEmail(res.data.email);
-          // setLoggedIn(true);
-          // navigate("/", { replace: true });
           handleLogin(res.email);
         })
         .catch((error) => {
@@ -47,26 +48,27 @@ function App() {
   };
 
   const handleLogin = (email) => {
-    setUserEmail(email);
     setLoggedIn(true);
     navigate("/", { replace: true });
   };
 
   return (
     <>
-      <div className="app">
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/movies" element={<Movies />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<Page404 />} />
-          <Route path="/saved-movies" element={<SavedMovies />} />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
-        </Routes>
-      </div>
-      {/* костыльная реализация. На следующем этапе переделаю */}
-      <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
+      <CurrentUserContext.Provider value={currentUser}>
+        <div className="app">
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/movies" element={<Movies />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="*" element={<Page404 />} />
+            <Route path="/saved-movies" element={<SavedMovies />} />
+            <Route path="/signin" element={<Login />} />
+            <Route path="/signup" element={<Register />} />
+          </Routes>
+        </div>
+        {/* костыльная реализация. На следующем этапе переделаю */}
+        <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
+      </CurrentUserContext.Provider>
     </>
   );
 }

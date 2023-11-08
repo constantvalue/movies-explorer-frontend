@@ -1,9 +1,25 @@
 import "./Register.css";
 import logo from "../../images/logo_header.svg";
 import { useFormWithValidation } from "../../utils/useFormValidation";
+import * as auth from "../../utils/auth";
+import { useNavigate } from "react-router";
 
 function Register() {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (values.password !== "") {
+      auth
+        .signUp(values.name, values.email, values.password)
+        .then(() => {
+          navigate("/signin", { replace: true });
+        })
+        .catch(() => {});
+    }
+  };
 
   return (
     <section className="register">
@@ -12,10 +28,10 @@ function Register() {
           <img src={logo} alt="лого"></img>
         </a>
         <h2 className="register__greeting">Добро пожаловать!</h2>
-        <form className="register__form">
+        <form className="register__form" onSubmit={handleSubmit}>
           <ul className="register__inputs">
             <li className="register__inputs-item">
-              <label className="register__input-label" for="name">
+              <label className="register__input-label" >
                 Имя
               </label>
               <input
@@ -32,7 +48,7 @@ function Register() {
               <span className="register__input-span">{errors.name}</span>
             </li>
             <li className="register__inputs-item">
-              <label className="register__input-label" for="email">
+              <label className="register__input-label" >
                 E-mail
               </label>
               <input
@@ -51,7 +67,7 @@ function Register() {
               <span className="register__input-span">{errors.email}</span>
             </li>
             <li className="register__inputs-item">
-              <label className="register__input-label" for="password">
+              <label className="register__input-label" >
                 Пароль
               </label>
               <input

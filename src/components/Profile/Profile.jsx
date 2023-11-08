@@ -46,6 +46,7 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
               <li className="profile__inputs-item">
                 <label className="profile__input-label">Имя</label>
                 <input
+                  disabled
                   onChange={handleChange}
                   type="text"
                   name="name"
@@ -57,6 +58,7 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
               <li className="profile__inputs-item">
                 <label className="profile__input-label">E-mail</label>
                 <input
+                  disabled
                   onChange={handleChange}
                   type="email"
                   name="email"

@@ -3,9 +3,12 @@ import logo from "../../images/logo_header.svg";
 import { useFormWithValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 function Register() {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
+  const [isError, setIsError] = useState(false);
+  const [backendMessage, setBackendMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -17,7 +20,16 @@ function Register() {
         .then(() => {
           navigate("/signin", { replace: true });
         })
-        .catch(() => {});
+        .catch((err) => {
+          setIsError(true);
+          if (err === "Ошибка409") {
+            setBackendMessage("Такой пользователь уже зарегестрирован");
+          } else {
+            setBackendMessage("При регистрации произошла ошибка (проверьте токен)")
+          }
+          
+          console.log(err);
+        });
     }
   };
 
@@ -31,9 +43,7 @@ function Register() {
         <form className="register__form" onSubmit={handleSubmit}>
           <ul className="register__inputs">
             <li className="register__inputs-item">
-              <label className="register__input-label" >
-                Имя
-              </label>
+              <label className="register__input-label">Имя</label>
               <input
                 onChange={handleChange}
                 value={values.name ? values.name : ""}
@@ -48,9 +58,7 @@ function Register() {
               <span className="register__input-span">{errors.name}</span>
             </li>
             <li className="register__inputs-item">
-              <label className="register__input-label" >
-                E-mail
-              </label>
+              <label className="register__input-label">E-mail</label>
               <input
                 onChange={handleChange}
                 value={values.email ? values.email : ""}
@@ -67,9 +75,7 @@ function Register() {
               <span className="register__input-span">{errors.email}</span>
             </li>
             <li className="register__inputs-item">
-              <label className="register__input-label" >
-                Пароль
-              </label>
+              <label className="register__input-label">Пароль</label>
               <input
                 onChange={handleChange}
                 value={values.password ? values.password : ""}
@@ -87,6 +93,13 @@ function Register() {
               <span className="register__input-span">{errors.password}</span>
             </li>
           </ul>
+          <span
+            className={`register__error-span ${
+              isError ? "register__error-span_visible" : ""
+            }`}
+          >
+            {backendMessage}
+          </span>
           <button
             type="submit"
             className={`register__submit ${

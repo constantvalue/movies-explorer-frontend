@@ -3,9 +3,13 @@ import logo from "../../images/logo_header.svg";
 import { useFormWithValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
 function Login({ handleLogin }) {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
+
+  const [isError, setIsError] = useState(false);
+  const [backendMessage, setBackendMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,8 +25,20 @@ function Login({ handleLogin }) {
           navigate("/movies", { replace: true });
         }
       })
-
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setIsError(true);
+        if (err === "Ошибка401") {
+          setBackendMessage(
+            "Неверный логин или пароль"
+          );
+        } else {
+          setBackendMessage(
+            "При авторизации произошла ошибка"
+          );
+        }
+   
+        console.log(err);
+      });
   };
 
   return (
@@ -70,6 +86,13 @@ function Login({ handleLogin }) {
               <span className="login__input-span">{errors.password}</span>
             </li>
           </ul>
+          <span
+            className={`login__error-span ${
+              isError ? "login__error-span_visible" : ""
+            }`}
+          >
+            {backendMessage}
+          </span>
           <button
             type="submit"
             className={`login__submit ${

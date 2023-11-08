@@ -169,6 +169,21 @@
   line-height: normal;
 }
 
+.login__error-span {
+  color: #ff004c;
+  text-align: center;
+  font-family: Inter;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: hidden;
+}
+
+.login__error-span_visible {
+  visibility: visible;
+}
+
 @media screen and (max-width: 768px) {
   .login__container {
     padding-top: 232px;

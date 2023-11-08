@@ -16,11 +16,6 @@ import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
 import Preloader from "../Movies/Preloader/Preloader";
 
 function App() {
-  const [isInfoTooltipPopupOpen, setIsInfotooltipPopupOpen] = useState(false);
-  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
-  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
-  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(null);
   //стейт контекста.
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
@@ -52,8 +47,8 @@ function App() {
   }, []);
 
   const handlSetCurrentUser = (name, email) => {
-    setCurrentUser( name, email)
-  }
+    setCurrentUser(name, email);
+  };
 
   const handleLogin = () => {
     setLoggedIn(true);

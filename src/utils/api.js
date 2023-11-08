@@ -32,19 +32,19 @@ class Api {
   //   }).then(this._returnResponse);
   // }
 
-  // updateUserInfo(data) {
-  //   return fetch(this._baseUrl + "/users/me", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "PATCH",
-  //     body: JSON.stringify({
-  //       name: data.name,
-  //       email: data.email,
-  //     }),
-  //   }).then(this._returnResponse);
-  // }
+  updateUserInfo(name, email) {
+    return fetch(this._baseUrl + "/users/me", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      method: "PATCH",
+      body: JSON.stringify({
+        name,
+        email,
+      }),
+    }).then(this._returnResponse);
+  }
 
   // updateAvatar(data) {
   //   return fetch(this._baseUrl + "/users/me/avatar", {

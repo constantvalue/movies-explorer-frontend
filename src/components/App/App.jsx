@@ -51,8 +51,18 @@ function App() {
     }
   }, []);
 
+  const handlSetCurrentUser = (name, email) => {
+    setCurrentUser( name, email)
+  }
+
   const handleLogin = () => {
     setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setLoggedIn(false);
+    navigate("/");
   };
 
   console.log(loggedIn);
@@ -72,7 +82,17 @@ function App() {
                   <ProtectedRouteElement element={Movies} loggedIn={loggedIn} />
                 }
               />
-              <Route path="/profile" element={<Profile />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRouteElement
+                    element={Profile}
+                    loggedIn={loggedIn}
+                    handleLogout={handleLogout}
+                    handlSetCurrentUser={handlSetCurrentUser}
+                  />
+                }
+              />
               <Route path="*" element={<Page404 />} />
               <Route
                 path="/saved-movies"

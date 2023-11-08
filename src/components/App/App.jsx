@@ -9,10 +9,11 @@ import Login from "../Login/Login";
 import Register from "../Register/Register";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { api } from "../../utils/api";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import * as auth from "../../utils/auth";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
+import Preloader from "../Movies/Preloader/Preloader";
 
 function App() {
   const [isInfoTooltipPopupOpen, setIsInfotooltipPopupOpen] = useState(false);
@@ -22,53 +23,78 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(null);
   //стейт контекста.
   const [currentUser, setCurrentUser] = useState({});
-  console.log(currentUser);
   const [cards, setCards] = useState([]);
-  const [loggedIn, setLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
+  //https://app.pachca.com/chats?thread_id=2247049 решение нашел тут.
+  const [isLoading, setIsLoading] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    handleTokenCheck();
-  }, [loggedIn]);
-
-  const handleTokenCheck = () => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
       auth
         .checkTokenValidity(jwt)
         .then((res) => {
-          handleLogin(res.email);
+          setLoggedIn(true);
+          setIsLoading(false);
+
+          setCurrentUser({ _id: res._id, name: res.name, email: res.email });
         })
         .catch((error) => {
+          setIsLoading(false);
           console.log(error);
         });
+    } else {
+      setIsLoading(false);
     }
+  }, []);
+
+  const handleLogin = () => {
+    setLoggedIn(true);
   };
 
-  const handleLogin = (email) => {
-    setLoggedIn(true);
-    navigate("/", { replace: true });
-  };
+  console.log(loggedIn);
 
   return (
     <>
-      <CurrentUserContext.Provider value={currentUser}>
-        <div className="app">
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/movies" element={<Movies />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="*" element={<Page404 />} />
-            <Route path="/saved-movies" element={<SavedMovies />} />
-            <Route path="/signin" element={<Login />} />
-            <Route path="/signup" element={<Register />} />
-          </Routes>
-        </div>
-        {/* костыльная реализация. На следующем этапе переделаю */}
-        <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
-      </CurrentUserContext.Provider>
+      <div className="app">
+        {isLoading ? (
+          <Preloader />
+        ) : (
+          <CurrentUserContext.Provider value={currentUser}>
+            <Routes>
+              <Route path="/" element={<Main />} />
+              <Route
+                path="/movies"
+                element={
+                  <ProtectedRouteElement element={Movies} loggedIn={loggedIn} />
+                }
+              />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="*" element={<Page404 />} />
+              <Route
+                path="/saved-movies"
+                element={
+                  <ProtectedRouteElement
+                    element={SavedMovies}
+                    loggedIn={loggedIn}
+                  />
+                }
+              />
+              <Route
+                path="/signin"
+                element={<Login handleLogin={handleLogin} />}
+              />
+              <Route path="/signup" element={<Register />} />
+            </Routes>
+
+            {/* костыльная реализация. На следующем этапе переделаю */}
+            <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
+          </CurrentUserContext.Provider>
+        )}
+      </div>
     </>
   );
 }

@@ -1,9 +1,29 @@
 import "./Login.css";
 import logo from "../../images/logo_header.svg";
 import { useFormWithValidation } from "../../utils/useFormValidation";
+import * as auth from "../../utils/auth";
+import { useNavigate } from "react-router";
 
-function Register() {
+function Login({ handleLogin }) {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    auth
+      .signIn(values.email, values.password)
+      .then((data) => {
+        if (data.token) {
+          localStorage.setItem("jwt", data.token);
+          // setFormValue({ email: "", password: "" });
+          handleLogin();
+          navigate("/movies", { replace: true });
+        }
+      })
+
+      .catch((err) => console.log(err));
+  };
 
   return (
     <section className="login">
@@ -12,12 +32,10 @@ function Register() {
           <img src={logo} alt="лого"></img>
         </a>
         <h2 className="login__greeting">Добро пожаловать!</h2>
-        <form className="login__form">
+        <form className="login__form" onSubmit={handleSubmit}>
           <ul className="login__inputs">
             <li className="login__inputs-item">
-              <label className="login__input-label" for="email">
-                E-mail
-              </label>
+              <label className="login__input-label">E-mail</label>
               <input
                 onChange={handleChange}
                 value={values.email ? values.email : ""}
@@ -34,9 +52,7 @@ function Register() {
               <span className="login__input-span">{errors.email}</span>
             </li>
             <li className="login__inputs-item">
-              <label className="login__input-label" for="password">
-                Пароль
-              </label>
+              <label className="login__input-label">Пароль</label>
               <input
                 onChange={handleChange}
                 value={values.password ? values.password : ""}
@@ -54,20 +70,26 @@ function Register() {
               <span className="login__input-span">{errors.password}</span>
             </li>
           </ul>
-          <button type="submit" className={`login__submit ${isValid === false ? "login__submit_disabled" : ""}`} disabled={!isValid}>
+          <button
+            type="submit"
+            className={`login__submit ${
+              isValid === false ? "login__submit_disabled" : ""
+            }`}
+            disabled={!isValid}
+          >
             Войти
           </button>
         </form>
       </div>
 
       <span className="login__submit-span">
-      Ещё не зарегистрированы?{"  "}
+        Ещё не зарегистрированы?{"  "}
         <a href="/signup" className="login__signin">
-        Регистрация
+          Регистрация
         </a>
       </span>
     </section>
   );
 }
 
-export default Register;
+export default Login;

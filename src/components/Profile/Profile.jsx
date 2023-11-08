@@ -18,9 +18,7 @@ function Profile() {
           <form className="profile__form">
             <ul className="profile__inputs">
               <li className="profile__inputs-item">
-                <label className="profile__input-label" for="name">
-                  Имя
-                </label>
+                <label className="profile__input-label">Имя</label>
                 <input
                   type="text"
                   required
@@ -29,9 +27,7 @@ function Profile() {
                 ></input>
               </li>
               <li className="profile__inputs-item">
-                <label className="profile__input-label" for="email">
-                  E-mail
-                </label>
+                <label className="profile__input-label">E-mail</label>
                 <input
                   type="email"
                   required

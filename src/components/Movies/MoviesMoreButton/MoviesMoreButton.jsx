@@ -1,9 +1,9 @@
 import "./MoviesMoreButton.css";
 
-function MoviesMoreButton() {
+function MoviesMoreButton({ handleClickMoreMovies, isMoreVisible}) {
   return (
     <section className="more">
-        <button className="more__button">
+        <button  onClick={handleClickMoreMovies} className={`more__button ${isMoreVisible ? "more__button_hidden" : ""}`}>
             Ещё
         </button>
     </section>

@@ -1,10 +1,12 @@
 import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
+import { useState } from "react";
 
-function MoviesCardList({ movies }) {
+function MoviesCardList({ movies, moviesCardsCount }) {
+
   return (
     <ul className="movies__list">
-      {movies.map((movie) => (
+      {movies.slice(0, moviesCardsCount).map((movie) => (
         <MoviesCard
           movie={movie}
           key={movie.id}

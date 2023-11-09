@@ -12,16 +12,6 @@ class Api {
     return Promise.reject("Ошибка" + res.status);
   }
 
-  // //публичный метод класса API для GET запроса данных пользователя
-  // getUserData() {
-  //   return fetch(this._baseUrl + "/users/me", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then(this._returnResponse);
-  // }
-
   // //публичный метод класса API для GET запроса массива карточек
   // getInitialCards() {
   //   return fetch(this._baseUrl + "/movies", {

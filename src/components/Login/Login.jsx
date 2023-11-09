@@ -28,15 +28,11 @@ function Login({ handleLogin }) {
       .catch((err) => {
         setIsError(true);
         if (err === "Ошибка401") {
-          setBackendMessage(
-            "Неверный логин или пароль"
-          );
+          setBackendMessage("Неверный логин или пароль");
         } else {
-          setBackendMessage(
-            "При авторизации произошла ошибка"
-          );
+          setBackendMessage("При авторизации произошла ошибка");
         }
-   
+
         console.log(err);
       });
   };

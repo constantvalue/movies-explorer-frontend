@@ -29,6 +29,7 @@ export const signIn = (email, password) => {
   }).then(returnResponse);
 };
 
+//проверяю токен и получаю информацию пользователя.
 export const checkTokenValidity = (token) => {
   return fetch(`${BASE_URL}/users/me`, {
     method: "GET",

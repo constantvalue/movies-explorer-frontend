@@ -1,15 +1,14 @@
 import "./App.css";
 import Main from "../Main/Main";
 import Page404 from "../Page404/Page404";
-import { Route, Routes, Navigate, useNavigate } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 import Movies from "../Movies/Movies";
 import Profile from "../Profile/Profile";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
-import { api } from "../../utils/api";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import * as auth from "../../utils/auth";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";

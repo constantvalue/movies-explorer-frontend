@@ -75,8 +75,12 @@
 }
 
 .movie__image {
+  height: 203px;
   object-fit: cover;
-  width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 364px;
+
 }
 
 @media screen and (max-width: 768px) {

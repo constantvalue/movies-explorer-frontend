@@ -1,7 +1,7 @@
 import "./Profile.css";
 import Header from "../Header/Header";
 import { useFormWithValidation } from "../../utils/useFormValidation";
-import { api } from "../../utils/api";
+import { api } from "../../utils/mainApi";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 import { useContext, useEffect, useState } from "react";
 
@@ -18,7 +18,7 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
     isValid &&
     (values.name !== currentUser.name || values.email !== currentUser.email);
 
-    //заполняю данные из контекста при монтировании.
+  //заполняю данные из контекста при монтировании.
   useEffect(() => {
     setValues({
       name: currentUser.name,

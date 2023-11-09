@@ -80,7 +80,6 @@
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   width: 364px;
-
 }
 
 @media screen and (max-width: 768px) {
@@ -92,10 +91,20 @@
   .movie__description {
     padding: 11px 14px 0px;
   }
+
+  .movie__image {
+    height: 190px;
+    width: 339px;
+  }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 400px) {
   .movie__duration {
     padding-bottom: 10px;
+  }
+
+  .movie__image {
+    height: 168px;
+    width: 300px;
   }
 }

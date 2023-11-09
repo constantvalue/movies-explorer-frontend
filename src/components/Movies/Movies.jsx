@@ -79,7 +79,7 @@ function Movies() {
 
   useEffect(() => {
     const allMovies = localStorage.getItem("movies");
-    if (allMovies !== null) {
+    if (allMovies === null) {
       setIsLoading(true);
       moviesApi
         .getMovies()
@@ -96,7 +96,6 @@ function Movies() {
     }
   }, []);
 
-  // console.log(localStorage.getItem("movies"));
 
   return (
     <>
@@ -117,10 +116,7 @@ function Movies() {
           <MoviesCardList movies={movies} moviesCardsCount={moviesCardsCount} />
         )}
 
-        <MoviesMoreButton
-          handleClickMoreMovies={handleClickMoreMovies}
-          isMoreVisible={isMoreVisible}
-        />
+        <MoviesMoreButton handleClickMoreMovies={handleClickMoreMovies} />
       </main>
 
       <footer>

@@ -12,7 +12,7 @@ function Main({loggedIn}) {
   return (
     <>
       <header>
-        <Header headerDark="" logoDark="" buttonDark="" />
+        <Header headerDark="" logoDark="" buttonDark="" loggedIn={loggedIn}/>
       </header>
 
       <main className="main">

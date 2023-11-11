@@ -16,10 +16,15 @@ import {
   DESKTOP_WIDTH_MORE,
   TABLET_WIDTH_MORE,
   MOBILE_WIDTH_MORE,
+  DESKTOP_WIDTH_INITIAL_COUNT,
+  TABLET_WIDTH_INITIAL_COUNT,
+  MOBILE_WIDTH_INITIAL_COUNT,
 } from "../../utils/constants";
 
 function Movies() {
-  const [moviesCardsCount, setMoviesCardsCount] = useState(12);
+  const [moviesCardsCount, setMoviesCardsCount] = useState(
+    DESKTOP_WIDTH_INITIAL_COUNT
+  );
 
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -48,11 +53,11 @@ function Movies() {
   //рендерим нужное количество карточек в зависимости от ширины экрана
   function handleRenderInitialCards() {
     if (window.innerWidth <= TABLET_WIDTH) {
-      setMoviesCardsCount(5);
+      setMoviesCardsCount(MOBILE_WIDTH_INITIAL_COUNT);
     } else if (window.innerWidth <= DESKTOP_WIDTH) {
-      setMoviesCardsCount(8);
+      setMoviesCardsCount(TABLET_WIDTH_INITIAL_COUNT);
     } else {
-      setMoviesCardsCount(12);
+      setMoviesCardsCount(DESKTOP_WIDTH_INITIAL_COUNT);
     }
   }
 
@@ -62,11 +67,11 @@ function Movies() {
 
   //обработчик клика по кнопке "еще". Добавляет нужное количество карточек в зависимости от ширины экрана.
   function handleClickMoreMovies() {
-    if (window.innerWidth <= 707) {
+    if (window.innerWidth <= TABLET_WIDTH) {
       setMoviesCardsCount(
         (moviesCardsCount) => moviesCardsCount + MOBILE_WIDTH_MORE
       );
-    } else if (window.innerWidth <= 1139) {
+    } else if (window.innerWidth <= DESKTOP_WIDTH) {
       setMoviesCardsCount(
         (moviesCardsCount) => moviesCardsCount + TABLET_WIDTH_MORE
       );
@@ -79,7 +84,7 @@ function Movies() {
 
   useEffect(() => {
     const allMovies = localStorage.getItem("movies");
-    if (allMovies === null) {
+    if (allMovies !== null) {
       setIsLoading(true);
       moviesApi
         .getMovies()
@@ -95,7 +100,6 @@ function Movies() {
         });
     }
   }, []);
-
 
   return (
     <>

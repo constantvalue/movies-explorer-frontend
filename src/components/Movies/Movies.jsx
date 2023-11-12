@@ -33,8 +33,9 @@ function Movies() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isSwitchToggled, setIsSwitchToggled] = useState(false);
-  const [moviesHasFound, setMoviesHasFound] = useState(true);
+  const [moviesHasFound, setMoviesHasFound] = useState(false);
   const [moviesToRender, setMoviesToRender] = useState([]);
+  const [isErrorShown, setIsErrorShown] = useState(false);
 
   //отслеживаем ширину окна.
   useEffect(() => {
@@ -123,9 +124,8 @@ function Movies() {
       })
     );
   }
-
+  const allMovies = localStorage.getItem("movies");
   function handleSearch() {
-    const allMovies = localStorage.getItem("movies");
     if (allMovies === null) {
       setIsLoading(true);
       moviesApi
@@ -147,17 +147,17 @@ function Movies() {
 
   useEffect(() => {
     saveFiltersDataToLocalStorage();
-    setMoviesHasFound(filteredMovies?.length > 0);
     setMoviesToRender(filteredMovies);
   }, [filteredMovies, isSwitchToggled]);
 
   useEffect(() => {
-    if (localStorage.getItem("movies")) handleFilter();
+    // setMoviesHasFound(filteredMovies);
+    handleFilter();
   }, [isSwitchToggled]);
-
   useEffect(() => {
     handleRenderInitialCards(windowSize);
   }, [windowSize, filteredMovies, isSwitchToggled]);
+
   return (
     <>
       <header>
@@ -175,11 +175,15 @@ function Movies() {
           handleSearch={handleSearch}
           setIsSwitchToggled={setIsSwitchToggled}
           isSwitchToggled={isSwitchToggled}
+          errors={errors}
+          isValid={isValid}
+          setIsErrorShown={setIsErrorShown}
+          isErrorShown={isErrorShown}
         />
 
         {isLoading ? (
           <Preloader />
-        ) : moviesHasFound ? (
+        ) : moviesToRender?.length > 0 || allMovies === null ? (
           <MoviesCardList
             movies={moviesToRender}
             moviesCardsCount={moviesCardsCount}

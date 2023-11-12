@@ -7,8 +7,20 @@
 }
 
 .search__form {
+  display: flex;
+  flex-direction: column;
   padding-top: 60px;
   width: calc(100% - 140px);
+}
+
+.search__form-error {
+  align-self: center;
+  color: #ee3465;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .search__form-input-container {

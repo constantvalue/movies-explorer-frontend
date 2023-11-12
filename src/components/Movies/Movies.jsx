@@ -33,7 +33,7 @@ function Movies() {
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isSwitchToggled, setIsSwitchToggled] = useState(false);
-  const [moviesHasFound, setMoviesHasFound] = useState(false);
+  // const [moviesHasFound, setMoviesHasFound] = useState(false);
   const [moviesToRender, setMoviesToRender] = useState([]);
   const [isErrorShown, setIsErrorShown] = useState(false);
 

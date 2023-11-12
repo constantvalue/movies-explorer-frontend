@@ -17,7 +17,6 @@ function SearchForm({
     setIsErrorShown(false);
   }, [values.search]);
 
-
   return (
     <section className="search">
       <form

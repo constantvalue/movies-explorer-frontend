@@ -7,9 +7,9 @@ import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
 // import MoviesCard from "./MoviesCard/MoviesCard";
 import { moviesApi } from "../../utils/moviesApi";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import Preloader from "./Preloader/Preloader";
-import { filterMovies } from "../../utils/filter";
+// import { filterMovies } from "../../utils/filter";
 import {
   DESKTOP_WIDTH,
   TABLET_WIDTH,
@@ -20,17 +20,21 @@ import {
   TABLET_WIDTH_INITIAL_COUNT,
   MOBILE_WIDTH_INITIAL_COUNT,
 } from "../../utils/constants";
+import { useFormWithValidation } from "../../utils/useFormValidation";
 
 function Movies() {
+  const { values, handleChange, errors, isValid, resetForm, setValues } =
+    useFormWithValidation();
   const [moviesCardsCount, setMoviesCardsCount] = useState(
     DESKTOP_WIDTH_INITIAL_COUNT
   );
-
-  const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isShort, setIsShort] = useState(false);
   // const [isMoreVisible, setIsMoreVisible] = useState(false);
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [isSwitchToggled, setIsSwitchToggled] = useState(false);
+  const [moviesHasFound, setMoviesHasFound] = useState(true);
+  const [moviesToRender, setMoviesToRender] = useState([]);
 
   //отслеживаем ширину окна.
   useEffect(() => {
@@ -61,10 +65,6 @@ function Movies() {
     }
   }
 
-  useEffect(() => {
-    handleRenderInitialCards(windowSize);
-  }, [windowSize]);
-
   //обработчик клика по кнопке "еще". Добавляет нужное количество карточек в зависимости от ширины экрана.
   function handleClickMoreMovies() {
     if (window.innerWidth <= TABLET_WIDTH) {
@@ -83,14 +83,56 @@ function Movies() {
   }
 
   useEffect(() => {
+    const savedFilteredMoviesData = JSON.parse(
+      localStorage.getItem("filteredMovies")
+    );
+    if (savedFilteredMoviesData?.searchQuery) {
+      values.search = savedFilteredMoviesData.searchQuery;
+      handleFilter();
+    }
+    if (savedFilteredMoviesData?.thumblerState)
+      setIsSwitchToggled(savedFilteredMoviesData.thumblerState);
+  }, []);
+
+  // Сохраняю состояние строки поиска, тумблера и массива фильмов в локал сторадж.
+  // Использую потом в useEffect для рендера сохраненного состояния.
+
+  function saveFiltersDataToLocalStorage() {
+    localStorage.setItem(
+      "filteredMovies",
+      JSON.stringify({
+        movies: filteredMovies,
+        searchQuery: values.search?.toLowerCase(),
+        thumblerState: isSwitchToggled,
+      })
+    );
+  }
+
+  function handleFilter() {
+    setFilteredMovies(
+      JSON.parse(localStorage.getItem("movies"))?.filter((movie) => {
+        if (isSwitchToggled) {
+          return (
+            movie.nameRU.toLowerCase().includes(values.search?.toLowerCase()) &&
+            movie.duration <= 40
+          );
+        } else
+          return movie.nameRU
+            .toLowerCase()
+            .includes(values.search?.toLowerCase());
+      })
+    );
+  }
+
+  function handleSearch() {
     const allMovies = localStorage.getItem("movies");
-    if (allMovies !== null) {
+    if (allMovies === null) {
       setIsLoading(true);
       moviesApi
         .getMovies()
         .then((res) => {
           localStorage.setItem("movies", JSON.stringify(res));
-          setMovies(res);
+          handleFilter();
         })
         .catch((err) => {
           console.log(err);
@@ -98,9 +140,24 @@ function Movies() {
         .finally(() => {
           setIsLoading(false);
         });
+    } else {
+      handleFilter();
     }
-  }, []);
+  }
 
+  useEffect(() => {
+    saveFiltersDataToLocalStorage();
+    setMoviesHasFound(filteredMovies?.length > 0);
+    setMoviesToRender(filteredMovies);
+  }, [filteredMovies, isSwitchToggled]);
+
+  useEffect(() => {
+    if (localStorage.getItem("movies")) handleFilter();
+  }, [isSwitchToggled]);
+
+  useEffect(() => {
+    handleRenderInitialCards(windowSize);
+  }, [windowSize, filteredMovies, isSwitchToggled]);
   return (
     <>
       <header>
@@ -112,12 +169,23 @@ function Movies() {
       </header>
 
       <main className="movies">
-        <SearchForm />
+        <SearchForm
+          handleChange={handleChange}
+          values={values}
+          handleSearch={handleSearch}
+          setIsSwitchToggled={setIsSwitchToggled}
+          isSwitchToggled={isSwitchToggled}
+        />
 
         {isLoading ? (
           <Preloader />
+        ) : moviesHasFound ? (
+          <MoviesCardList
+            movies={moviesToRender}
+            moviesCardsCount={moviesCardsCount}
+          />
         ) : (
-          <MoviesCardList movies={movies} moviesCardsCount={moviesCardsCount} />
+          <span className="movies__error-span">Ничего не найдено!</span>
         )}
 
         <MoviesMoreButton handleClickMoreMovies={handleClickMoreMovies} />

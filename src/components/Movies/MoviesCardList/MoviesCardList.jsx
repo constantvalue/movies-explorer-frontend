@@ -6,7 +6,7 @@ function MoviesCardList({ movies, moviesCardsCount }) {
 
   return (
     <ul className="movies__list">
-      {movies.slice(0, moviesCardsCount).map((movie) => (
+      {movies?.slice(0, moviesCardsCount).map((movie) => (
         <MoviesCard
           movie={movie}
           key={movie.id}

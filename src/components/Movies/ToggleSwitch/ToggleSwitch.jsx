@@ -1,13 +1,17 @@
 import "./ToggleSwitch.css";
 
-function ToggleSwitch({ isCheck, handleCheckboxChange }) {
+function ToggleSwitch({ isSwitchToggled, setIsSwitchToggled }) {
+  const handleChange = (e) => {
+    setIsSwitchToggled(e.target.checked);
+  };
+
   return (
     <label className="switch">
       <input
         className="switch__checkbox"
         type="checkbox"
-        checked={isCheck}
-        onChange={handleCheckboxChange}
+        checked={isSwitchToggled}
+        onChange={handleChange}
       ></input>
       <span className="switch__slider"></span>
     </label>

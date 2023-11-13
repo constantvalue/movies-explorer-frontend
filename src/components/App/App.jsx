@@ -89,8 +89,6 @@ function App() {
       })
       .catch((err) => console.log(err));
   }
-  
-
 
   return (
     <>
@@ -109,6 +107,7 @@ function App() {
                     loggedIn={loggedIn}
                     savedMovies={savedMovies}
                     handleSaveMovie={handleSaveMovie}
+                    handleDeleteMovie={handleDeleteMovie}
                   />
                 }
               />

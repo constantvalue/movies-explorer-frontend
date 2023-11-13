@@ -5,11 +5,9 @@ import MoviesMoreButton from "./MoviesMoreButton/MoviesMoreButton";
 import Header from "../Header/Header";
 import SearchForm from "./SearchForm/SearchForm";
 import MoviesCardList from "./MoviesCardList/MoviesCardList";
-// import MoviesCard from "./MoviesCard/MoviesCard";
 import { moviesApi } from "../../utils/moviesApi";
 import { useEffect, useState } from "react";
 import Preloader from "./Preloader/Preloader";
-// import { filterMovies } from "../../utils/filter";
 import {
   DESKTOP_WIDTH,
   TABLET_WIDTH,
@@ -22,18 +20,21 @@ import {
 } from "../../utils/constants";
 import { useFormWithValidation } from "../../utils/useFormValidation";
 
-function Movies({savedMovies, handleSaveMovie}) {
-  const { values, handleChange, errors, isValid, resetForm, setValues } =
-    useFormWithValidation();
+function Movies({
+  savedMovies,
+  handleSaveMovie,
+  handleDeleteMovie,
+  setSavedMovies,
+}) {
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
   const [moviesCardsCount, setMoviesCardsCount] = useState(
     DESKTOP_WIDTH_INITIAL_COUNT
   );
   const [isLoading, setIsLoading] = useState(false);
-  // const [isMoreVisible, setIsMoreVisible] = useState(false);
+  const [isMoreVisible, setIsMoreVisible] = useState(false);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isSwitchToggled, setIsSwitchToggled] = useState(false);
-  // const [moviesHasFound, setMoviesHasFound] = useState(false);
   const [moviesToRender, setMoviesToRender] = useState([]);
   const [isErrorShown, setIsErrorShown] = useState(false);
 
@@ -97,8 +98,7 @@ function Movies({savedMovies, handleSaveMovie}) {
 
   // Сохраняю состояние строки поиска, тумблера и массива фильмов в локал сторадж.
   // Использую потом в useEffect для рендера сохраненного состояния.
-
-  function saveFiltersDataToLocalStorage() {
+  function storeInLocalStorage() {
     localStorage.setItem(
       "filteredMovies",
       JSON.stringify({
@@ -109,6 +109,7 @@ function Movies({savedMovies, handleSaveMovie}) {
     );
   }
 
+  //функцию фильтрации подглядел в пачке.
   function handleFilter() {
     setFilteredMovies(
       JSON.parse(localStorage.getItem("movies"))?.filter((movie) => {
@@ -146,18 +147,25 @@ function Movies({savedMovies, handleSaveMovie}) {
   }
 
   useEffect(() => {
-    saveFiltersDataToLocalStorage();
+    storeInLocalStorage();
     setMoviesToRender(filteredMovies);
   }, [filteredMovies, isSwitchToggled]);
 
   useEffect(() => {
-    // setMoviesHasFound(filteredMovies);
     handleFilter();
   }, [isSwitchToggled]);
 
   useEffect(() => {
     handleRenderInitialCards(windowSize);
   }, [windowSize, filteredMovies, isSwitchToggled]);
+
+  useEffect(() => {
+    if (moviesCardsCount < moviesToRender?.length) {
+      setIsMoreVisible(false);
+    } else {
+      setIsMoreVisible(true);
+    }
+  }, [moviesToRender?.length, moviesCardsCount]);
 
   return (
     <>
@@ -190,12 +198,17 @@ function Movies({savedMovies, handleSaveMovie}) {
             moviesCardsCount={moviesCardsCount}
             savedMovies={savedMovies}
             handleSaveMovie={handleSaveMovie}
+            handleDeleteMovie={handleDeleteMovie}
+            setSavedMovies={setSavedMovies}
           />
         ) : (
           <span className="movies__error-span">Ничего не найдено!</span>
         )}
 
-        <MoviesMoreButton handleClickMoreMovies={handleClickMoreMovies} />
+        <MoviesMoreButton
+          handleClickMoreMovies={handleClickMoreMovies}
+          isMoreVisible={isMoreVisible}
+        />
       </main>
 
       <footer>

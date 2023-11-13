@@ -3,31 +3,39 @@ import { useLocation } from "react-router";
 import { useState } from "react";
 import { useEffect } from "react";
 
-function MoviesCard({ movie, cardButton, savedMovies, handleSaveMovie, handleDeleteMovie }) {
+function MoviesCard({
+  movie,
+  savedMovies,
+  handleSaveMovie,
+  handleDeleteMovie,
+}) {
   const location = useLocation();
   const [isLiked, setIsLiked] = useState(false);
 
+  //монструозный код, который без 0.5 водки не поймешь. Иначе не придумал.
+  //Долго мучался с toggle как в проекте Mesto, но ничего не получилось.
+  //Поэтом вот такие костыли.
+  const onLikeClick = () => {
+    const handlePrefilter = savedMovies.filter((m) => {
+      return m.movieId === movie.id;
+    });
+    console.log(handlePrefilter);
+    if (savedMovies.some((element) => movie.id === element.movieId)) {
+      handleDeleteMovie(handlePrefilter[0]);
+    } else {
+      handleSaveMovie(movie);
+    }
+  };
+  // console.log(savedMovies)
+  const onDeleteClick = () => {
+    handleDeleteMovie(movie);
+  };
+
+  //рендерю лайки при загрузке роута /movies
   useEffect(() => {
     if (location.pathname === "/movies")
       setIsLiked(savedMovies.some((element) => movie.id === element.movieId));
-  }, [savedMovies, movie.id, setIsLiked, location.pathname]);
-
-  function onLikeClick() {
-    if (savedMovies.some((element) => movie.id === element.movieId)) {
-      setIsLiked(true);
-      handleSaveMovie(movie);
-    } else {
-      setIsLiked(false);
-      handleSaveMovie(movie);
-    }
-  }
-
-  const onDeleteClick = () => {
-    handleDeleteMovie(movie)
-  }
-
-  
-
+  }, [location.pathname, savedMovies, movie.id, setIsLiked]);
 
   // https://shorturl.at/mDEGU код подсмотрел тут
   function toHoursAndMinutes(totalMinutes) {
@@ -52,7 +60,9 @@ function MoviesCard({ movie, cardButton, savedMovies, handleSaveMovie, handleDel
       <div className="movie__description">
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button
-          onClick={location.pathname === "/movies" ? onLikeClick : onDeleteClick}
+          onClick={
+            location.pathname === "/movies" ? onLikeClick : onDeleteClick
+          }
           className={
             location.pathname === "/movies"
               ? `movie__like-button ${

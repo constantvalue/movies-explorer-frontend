@@ -4,40 +4,44 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import SearchForm from "../Movies/SearchForm/SearchForm";
 import MoviesCardList from "../Movies/MoviesCardList/MoviesCardList";
-import MoviesCard from "../Movies/MoviesCard/MoviesCard";
 import { useState } from "react";
-import { api } from "../../utils/mainApi";
 import { useFormWithValidation } from "../../utils/useFormValidation";
+import { useEffect } from "react";
 
-function SavedMovies({ savedMovies, setSavedMovies, handleDeleteMovie }) {
-  const { values, handleChange, errors, isValid, resetForm, setValues } =
-    useFormWithValidation();
-  const [isLoading, setIsLoading] = useState(false);
-  // const [isMoreVisible, setIsMoreVisible] = useState(false);
+function SavedMovies({ savedMovies, handleDeleteMovie }) {
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
+
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [isSwitchToggled, setIsSwitchToggled] = useState(false);
-  // const [moviesHasFound, setMoviesHasFound] = useState(false);
   const [moviesToRender, setMoviesToRender] = useState([]);
   const [isErrorShown, setIsErrorShown] = useState(false);
 
-  //временная затычка
+  //функцию фильтрации подглядел в пачке.
   function handleSearch() {
     setFilteredMovies(
-      JSON.parse(localStorage.getItem("movies"))?.filter((movie) => {
+      savedMovies.filter((movie) => {
         if (isSwitchToggled) {
           return (
-            movie.nameRU.toLowerCase().includes(values.search?.toLowerCase()) &&
+            movie.nameRU
+              .toLowerCase()
+              .includes(values.search?.toLowerCase() || "") &&
             movie.duration <= 40
           );
         } else
           return movie.nameRU
             .toLowerCase()
-            .includes(values.search?.toLowerCase());
+            .includes(values.search?.toLowerCase() || "");
       })
     );
   }
 
-  console.log(savedMovies);
+  useEffect(() => {
+    handleSearch();
+  }, [isSwitchToggled, savedMovies]);
+
+  useEffect(() => {
+    setMoviesToRender(filteredMovies);
+  }, [filteredMovies]);
 
   return (
     <>
@@ -50,23 +54,26 @@ function SavedMovies({ savedMovies, setSavedMovies, handleDeleteMovie }) {
       </header>
 
       <main className="movies">
-        <div className="movies__content">
-          <SearchForm
-            handleChange={handleChange}
-            values={values}
-            handleSearch={handleSearch}
-            setIsSwitchToggled={setIsSwitchToggled}
-            isSwitchToggled={isSwitchToggled}
-            errors={errors}
-            isValid={isValid}
-            setIsErrorShown={setIsErrorShown}
-            isErrorShown={isErrorShown}
-          />
+        <SearchForm
+          handleChange={handleChange}
+          values={values}
+          handleSearch={handleSearch}
+          setIsSwitchToggled={setIsSwitchToggled}
+          isSwitchToggled={isSwitchToggled}
+          errors={errors}
+          isValid={isValid}
+          setIsErrorShown={setIsErrorShown}
+          isErrorShown={isErrorShown}
+        />
+
+        {moviesToRender?.length > 0 ? (
           <MoviesCardList
-            savedMovies={savedMovies}
+            savedMovies={moviesToRender}
             handleDeleteMovie={handleDeleteMovie}
           />
-        </div>
+        ) : (
+          <span className="saved-movies__error-span">Ничего не найдено!</span>
+        )}
       </main>
 
       <footer>

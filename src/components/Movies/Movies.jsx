@@ -85,15 +85,15 @@ function Movies({
   }
 
   useEffect(() => {
-    const savedFilteredMoviesData = JSON.parse(
+    const storeInLocalStorage = JSON.parse(
       localStorage.getItem("filteredMovies")
     );
-    if (savedFilteredMoviesData?.searchQuery) {
-      values.search = savedFilteredMoviesData.searchQuery;
+    if (storeInLocalStorage?.searchQuery) {
+      values.search = storeInLocalStorage.searchQuery;
       handleFilter();
     }
-    if (savedFilteredMoviesData?.thumblerState)
-      setIsSwitchToggled(savedFilteredMoviesData.thumblerState);
+    if (storeInLocalStorage?.thumblerState)
+      setIsSwitchToggled(storeInLocalStorage.thumblerState);
   }, []);
 
   // Сохраняю состояние строки поиска, тумблера и массива фильмов в локал сторадж.

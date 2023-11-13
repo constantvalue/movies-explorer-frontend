@@ -92,6 +92,10 @@
     padding: 11px 14px 0px;
   }
 
+  .movie__delete-button {
+    visibility: visible;
+  }
+
   .movie__image {
     height: 190px;
     width: 339px;

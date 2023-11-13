@@ -12,15 +12,15 @@ class Api {
     return Promise.reject("Ошибка" + res.status);
   }
 
-  // //публичный метод класса API для GET запроса массива карточек
-  // getInitialCards() {
-  //   return fetch(this._baseUrl + "/movies", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //   }).then(this._returnResponse);
-  // }
+ 
+  getSavedMovies() {
+    return fetch(this._baseUrl + "/movies", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+    }).then(this._returnResponse);
+  }
 
   updateUserInfo(name, email) {
     return fetch(this._baseUrl + "/users/me", {
@@ -35,6 +35,9 @@ class Api {
       }),
     }).then(this._returnResponse);
   }
+
+
+  
 
   // updateAvatar(data) {
   //   return fetch(this._baseUrl + "/users/me/avatar", {

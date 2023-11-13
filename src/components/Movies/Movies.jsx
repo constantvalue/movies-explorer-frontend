@@ -154,6 +154,7 @@ function Movies() {
     // setMoviesHasFound(filteredMovies);
     handleFilter();
   }, [isSwitchToggled]);
+
   useEffect(() => {
     handleRenderInitialCards(windowSize);
   }, [windowSize, filteredMovies, isSwitchToggled]);

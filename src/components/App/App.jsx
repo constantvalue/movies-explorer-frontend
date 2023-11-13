@@ -13,6 +13,7 @@ import * as auth from "../../utils/auth";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
 import Preloader from "../Movies/Preloader/Preloader";
+import { api } from "../../utils/mainApi";
 
 function App() {
   //стейт контекста.
@@ -22,6 +23,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   //https://app.pachca.com/chats?thread_id=2247049 решение нашел тут.
   const [isLoading, setIsLoading] = useState(true);
+  const [savedMovies, setSavedMovies] = useState([]);
 
   const navigate = useNavigate();
 
@@ -38,6 +40,14 @@ function App() {
         })
         .catch((error) => {
           setIsLoading(false);
+          console.log(error);
+        });
+      api
+        .getSavedMovies()
+        .then((res) => {
+          setSavedMovies(res);
+        })
+        .catch((error) => {
           console.log(error);
         });
     } else {
@@ -68,7 +78,7 @@ function App() {
         ) : (
           <CurrentUserContext.Provider value={currentUser}>
             <Routes>
-              <Route path="/" element={<Main loggedIn={loggedIn}/>} />
+              <Route path="/" element={<Main loggedIn={loggedIn} />} />
               <Route
                 path="/movies"
                 element={
@@ -93,6 +103,8 @@ function App() {
                   <ProtectedRouteElement
                     element={SavedMovies}
                     loggedIn={loggedIn}
+                    savedMovies={savedMovies}
+                    setSavedMovies={setSavedMovies}
                   />
                 }
               />

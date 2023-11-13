@@ -3,7 +3,13 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import { useState } from "react";
 import { useLocation } from "react-router";
 
-function MoviesCardList({ movies, moviesCardsCount, savedMovies }) {
+function MoviesCardList({
+  movies,
+  moviesCardsCount,
+  savedMovies,
+  handleSaveMovie,
+  handleDeleteMovie
+}) {
   const location = useLocation();
 
   return (
@@ -14,7 +20,9 @@ function MoviesCardList({ movies, moviesCardsCount, savedMovies }) {
           <MoviesCard
             movie={movie}
             key={location.pathname === "/movies" ? movie.id : movie.movieId}
-            // cardButton={cardButton}
+            savedMovies={savedMovies}
+            handleSaveMovie={handleSaveMovie}
+            handleDeleteMovie={handleDeleteMovie}
           />
         ))}
     </ul>

@@ -12,7 +12,6 @@ class Api {
     return Promise.reject("Ошибка" + res.status);
   }
 
- 
   getSavedMovies() {
     return fetch(this._baseUrl + "/movies", {
       headers: {
@@ -36,57 +35,38 @@ class Api {
     }).then(this._returnResponse);
   }
 
+  addCardOnServer(movie) {
+    return fetch(this._baseUrl + "/movies", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({
+        country: movie.country,
+        director: movie.director,
+        duration: movie.duration,
+        year: movie.year,
+        description: movie.description,
+        image: `https://api.nomoreparties.co/${movie.image.url}`,
+        trailerLink: movie.trailerLink,
+        thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
+        movieId: movie.id,
+        nameRU: movie.nameRU,
+        nameEN: movie.nameEN,
+      }),
+    }).then(this._returnResponse);
+  }
 
-  
-
-  // updateAvatar(data) {
-  //   return fetch(this._baseUrl + "/users/me/avatar", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "PATCH",
-  //     body: JSON.stringify({
-  //       avatar: data.avatar,
-  //     }),
-  //   }).then(this._returnResponse);
-  // }
-
-  // addCardOnServer(data) {
-  //   return fetch(this._baseUrl + "/cards", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       name: data.name,
-  //       link: data.link,
-  //     }),
-  //   }).then(this._returnResponse);
-  // }
-
-  // deleteCard(card) {
-  //   return fetch(this._baseUrl + "/cards/" + card._id, {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     method: "DELETE",
-  //   }).then(this._returnResponse);
-  // }
-
-  // //с помощью тернарного оператора, объединили два метода в один.
-  // changeLikeCardStatus(card, status) {
-  //   return fetch(this._baseUrl + "/cards/" + card._id + "/likes", {
-  //     headers: {
-  //       Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-  //       "Content-Type": "application/json",
-  //     },
-  //     //избегаем использование if else.
-  //     method: status ? "DELETE" : "PUT",
-  //   }).then(this._returnResponse);
-  // }
+  deleteCard(movie) {
+    return fetch(this._baseUrl + "/movies/" + movie._id, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "Content-Type": "application/json",
+      },
+      method: "DELETE",
+    }).then(this._returnResponse);
+  }
 }
 
 export const api = new Api({
@@ -96,6 +76,5 @@ export const api = new Api({
     // "Content-Type": "application/json",
   },
 });
-
 
 // https://api.voronin.nomoredomainsrocks.ru

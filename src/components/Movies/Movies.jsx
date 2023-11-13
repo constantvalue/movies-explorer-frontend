@@ -22,7 +22,7 @@ import {
 } from "../../utils/constants";
 import { useFormWithValidation } from "../../utils/useFormValidation";
 
-function Movies() {
+function Movies({savedMovies, handleSaveMovie}) {
   const { values, handleChange, errors, isValid, resetForm, setValues } =
     useFormWithValidation();
   const [moviesCardsCount, setMoviesCardsCount] = useState(
@@ -188,6 +188,8 @@ function Movies() {
           <MoviesCardList
             movies={moviesToRender}
             moviesCardsCount={moviesCardsCount}
+            savedMovies={savedMovies}
+            handleSaveMovie={handleSaveMovie}
           />
         ) : (
           <span className="movies__error-span">Ничего не найдено!</span>

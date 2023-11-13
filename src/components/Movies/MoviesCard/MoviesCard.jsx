@@ -1,8 +1,33 @@
 import "./MoviesCard.css";
 import { useLocation } from "react-router";
+import { useState } from "react";
+import { useEffect } from "react";
 
-function MoviesCard({ movie, cardButton }) {
+function MoviesCard({ movie, cardButton, savedMovies, handleSaveMovie, handleDeleteMovie }) {
   const location = useLocation();
+  const [isLiked, setIsLiked] = useState(false);
+
+  useEffect(() => {
+    if (location.pathname === "/movies")
+      setIsLiked(savedMovies.some((element) => movie.id === element.movieId));
+  }, [savedMovies, movie.id, setIsLiked, location.pathname]);
+
+  function onLikeClick() {
+    if (savedMovies.some((element) => movie.id === element.movieId)) {
+      setIsLiked(true);
+      handleSaveMovie(movie);
+    } else {
+      setIsLiked(false);
+      handleSaveMovie(movie);
+    }
+  }
+
+  const onDeleteClick = () => {
+    handleDeleteMovie(movie)
+  }
+
+  
+
 
   // https://shorturl.at/mDEGU код подсмотрел тут
   function toHoursAndMinutes(totalMinutes) {
@@ -11,10 +36,9 @@ function MoviesCard({ movie, cardButton }) {
 
     return hours ? `${hours}ч ${minutes}м` : `${minutes}м`;
   }
-  console.log(location);
   return (
     <li className="movie">
-      <a href={movie.trailerLink} target="_blank">
+      <a rel="noreferrer" href={movie.trailerLink} target="_blank">
         <img
           src={
             location.pathname === "/movies"
@@ -28,9 +52,12 @@ function MoviesCard({ movie, cardButton }) {
       <div className="movie__description">
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button
+          onClick={location.pathname === "/movies" ? onLikeClick : onDeleteClick}
           className={
             location.pathname === "/movies"
-              ? "movie__like-button"
+              ? `movie__like-button ${
+                  isLiked ? "movie__like-button_active" : ""
+                }`
               : "movie__delete-button"
           }
         ></button>

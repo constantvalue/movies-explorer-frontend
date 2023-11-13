@@ -9,7 +9,7 @@ import { useState } from "react";
 import { api } from "../../utils/mainApi";
 import { useFormWithValidation } from "../../utils/useFormValidation";
 
-function SavedMovies({ savedMovies, setSavedMovies }) {
+function SavedMovies({ savedMovies, setSavedMovies, handleDeleteMovie }) {
   const { values, handleChange, errors, isValid, resetForm, setValues } =
     useFormWithValidation();
   const [isLoading, setIsLoading] = useState(false);
@@ -20,27 +20,6 @@ function SavedMovies({ savedMovies, setSavedMovies }) {
   const [moviesToRender, setMoviesToRender] = useState([]);
   const [isErrorShown, setIsErrorShown] = useState(false);
 
-  function handleSaveMovie(movie) {
-    api
-      .saveMovie({
-        country: movie.country,
-        director: movie.director,
-        duration: movie.duration,
-        year: movie.year,
-        description: movie.description,
-        image: `https://api.nomoreparties.co/${movie.image.url}`,
-        trailerLink: movie.trailerLink,
-        thumbnail: `https://api.nomoreparties.co/${movie.image.formats.thumbnail.url}`,
-        owner: movie.owner,
-        movieId: movie.id,
-        nameRU: movie.nameRU,
-        nameEN: movie.nameEN,
-      })
-      .then((movie) => {
-        setSavedMovies([movie, ...savedMovies]);
-      })
-      .catch(console.log);
-  }
   //временная затычка
   function handleSearch() {
     setFilteredMovies(
@@ -57,6 +36,8 @@ function SavedMovies({ savedMovies, setSavedMovies }) {
       })
     );
   }
+
+  console.log(savedMovies);
 
   return (
     <>
@@ -81,7 +62,10 @@ function SavedMovies({ savedMovies, setSavedMovies }) {
             setIsErrorShown={setIsErrorShown}
             isErrorShown={isErrorShown}
           />
-          <MoviesCardList savedMovies={savedMovies} />
+          <MoviesCardList
+            savedMovies={savedMovies}
+            handleDeleteMovie={handleDeleteMovie}
+          />
         </div>
       </main>
 

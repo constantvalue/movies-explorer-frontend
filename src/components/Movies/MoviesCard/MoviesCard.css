@@ -29,6 +29,10 @@
   cursor: pointer;
 }
 
+.movie__like-button_active {
+  background-image: url(./../../../images/like__button-filled.svg);
+}
+
 .movie__like-button:hover {
   transition: 0.5s;
   background-image: url(./../../../images/like__button-filled.svg);

@@ -16,10 +16,8 @@ import Preloader from "../Movies/Preloader/Preloader";
 import { api } from "../../utils/mainApi";
 
 function App() {
-  //стейт контекста.
+  //стейт контекста пользователя.
   const [currentUser, setCurrentUser] = useState({});
-  const [cards, setCards] = useState([]);
-  const [userEmail, setUserEmail] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   //https://app.pachca.com/chats?thread_id=2247049 решение нашел тут.
   const [isLoading, setIsLoading] = useState(true);
@@ -70,6 +68,30 @@ function App() {
     navigate("/");
   };
 
+  function handleSaveMovie(movie) {
+    api
+      .addCardOnServer(movie)
+      .then((res) => {
+        setSavedMovies([res, ...savedMovies]);
+      })
+      .catch(console.log);
+  }
+
+  function handleDeleteMovie(movie) {
+    api
+      .deleteCard(movie)
+      .then(() => {
+        setSavedMovies(
+          savedMovies.filter((m) => {
+            return m._id !== movie._id;
+          })
+        );
+      })
+      .catch((err) => console.log(err));
+  }
+  
+
+
   return (
     <>
       <div className="app">
@@ -82,7 +104,12 @@ function App() {
               <Route
                 path="/movies"
                 element={
-                  <ProtectedRouteElement element={Movies} loggedIn={loggedIn} />
+                  <ProtectedRouteElement
+                    element={Movies}
+                    loggedIn={loggedIn}
+                    savedMovies={savedMovies}
+                    handleSaveMovie={handleSaveMovie}
+                  />
                 }
               />
               <Route
@@ -105,6 +132,7 @@ function App() {
                     loggedIn={loggedIn}
                     savedMovies={savedMovies}
                     setSavedMovies={setSavedMovies}
+                    handleDeleteMovie={handleDeleteMovie}
                   />
                 }
               />

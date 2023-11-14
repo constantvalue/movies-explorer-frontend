@@ -1,14 +1,15 @@
 import React from "react";
 import "./AccountButton.css";
+import { Link } from "react-router-dom";
 
 function AccountButton(props) {
   return (
     <button
       className={`account-button ${props.buttonDark} ${props.visibility}`}
     >
-      <a href="/profile" className="account-button__link">
+      <Link to={"/profile"} className="account-button__link">
         Аккаунт
-      </a>
+      </Link>
 
       <div className={`account-button__logo ${props.logoDark}`} />
     </button>

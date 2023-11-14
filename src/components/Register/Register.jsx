@@ -4,8 +4,9 @@ import { useFormWithValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Register() {
+function Register({ handleLogin, loggedIn }) {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
   const [isError, setIsError] = useState(false);
   const [backendMessage, setBackendMessage] = useState("");
@@ -18,27 +19,44 @@ function Register() {
       auth
         .signUp(values.name, values.email, values.password)
         .then(() => {
-          navigate("/signin", { replace: true });
+          auth
+            .signIn(values.email, values.password)
+            .then((data) => {
+              if (data.token) {
+                localStorage.setItem("jwt", data.token);
+                handleLogin();
+                navigate("/movies", { replace: true });
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
         })
         .catch((err) => {
           setIsError(true);
           if (err === "Ошибка409") {
             setBackendMessage("Такой пользователь уже зарегестрирован");
           } else {
-            setBackendMessage("При регистрации произошла ошибка (проверьте токен)")
+            setBackendMessage(
+              "При регистрации произошла ошибка (проверьте токен)"
+            );
           }
-          
+
           console.log(err);
         });
     }
   };
 
+  if (loggedIn) {
+    navigate("/movies", { replace: true });
+  }
+
   return (
     <section className="register">
       <div className="register__container">
-        <a className="register__logo" href="/">
+        <Link className="register__logo" to={"/"}>
           <img src={logo} alt="лого"></img>
-        </a>
+        </Link>
         <h2 className="register__greeting">Добро пожаловать!</h2>
         <form className="register__form" onSubmit={handleSubmit}>
           <ul className="register__inputs">
@@ -64,6 +82,8 @@ function Register() {
                 value={values.email ? values.email : ""}
                 type="email"
                 name="email"
+                //https://stackoverflow.com/questions/23953782/javascript-email-regex-validation
+                pattern="^.+@.+\..+$"
                 required
                 className={
                   errors.email
@@ -114,9 +134,9 @@ function Register() {
 
       <span className="register__submit-span">
         Уже зарегистрированы?{"  "}
-        <a href="/signin" className="register__signin">
+        <Link to={"/signin"} className="register__signin">
           Войти
-        </a>
+        </Link>
       </span>
     </section>
   );

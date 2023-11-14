@@ -2,6 +2,7 @@ import "./MoviesCard.css";
 import { useLocation } from "react-router";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function MoviesCard({
   movie,
@@ -46,7 +47,7 @@ function MoviesCard({
   }
   return (
     <li className="movie">
-      <a rel="noreferrer" href={movie.trailerLink} target="_blank">
+      <Link rel="noreferrer" to={movie.trailerLink} target="_blank">
         <img
           src={
             location.pathname === "/movies"
@@ -56,7 +57,7 @@ function MoviesCard({
           alt="Фильм"
           className="movie__image"
         />
-      </a>
+      </Link>
       <div className="movie__description">
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button

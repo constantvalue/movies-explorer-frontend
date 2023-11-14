@@ -4,8 +4,9 @@ import { useFormWithValidation } from "../../utils/useFormValidation";
 import * as auth from "../../utils/auth";
 import { useNavigate } from "react-router";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Login({ handleLogin }) {
+function Login({ handleLogin, loggedIn }) {
   const { values, errors, isValid, handleChange } = useFormWithValidation();
 
   const [isError, setIsError] = useState(false);
@@ -20,7 +21,6 @@ function Login({ handleLogin }) {
       .then((data) => {
         if (data.token) {
           localStorage.setItem("jwt", data.token);
-          // setFormValue({ email: "", password: "" });
           handleLogin();
           navigate("/movies", { replace: true });
         }
@@ -37,12 +37,16 @@ function Login({ handleLogin }) {
       });
   };
 
+  if (loggedIn) {
+    navigate("/movies", { replace: true });
+  }
+
   return (
     <section className="login">
       <div className="login__container">
-        <a className="login__logo" href="/">
+        <Link className="login__logo" to={"/"}>
           <img src={logo} alt="лого"></img>
-        </a>
+        </Link>
         <h2 className="login__greeting">Добро пожаловать!</h2>
         <form className="login__form" onSubmit={handleSubmit}>
           <ul className="login__inputs">
@@ -54,6 +58,8 @@ function Login({ handleLogin }) {
                 type="email"
                 name="email"
                 required
+                //https://stackoverflow.com/questions/23953782/javascript-email-regex-validation
+                pattern="^.+@.+\..+$"
                 className={
                   errors.email
                     ? "login__input login__input_error"
@@ -103,9 +109,9 @@ function Login({ handleLogin }) {
 
       <span className="login__submit-span">
         Ещё не зарегистрированы?{"  "}
-        <a href="/signup" className="login__signin">
+        <Link to={"/signup"} className="login__signin">
           Регистрация
-        </a>
+        </Link>
       </span>
     </section>
   );

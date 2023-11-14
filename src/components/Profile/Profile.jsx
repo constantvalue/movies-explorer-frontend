@@ -4,6 +4,7 @@ import { useFormWithValidation } from "../../utils/useFormValidation";
 import { api } from "../../utils/mainApi";
 import { CurrentUserContext } from "../../utils/CurrentUserContext";
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Profile({ handleLogout, handlSetCurrentUser }) {
   const { values, isValid, handleChange, setValues } = useFormWithValidation();
@@ -18,13 +19,9 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
     isValid &&
     (values.name !== currentUser.name || values.email !== currentUser.email);
 
+    console.log(currentUser)
+
   //заполняю данные из контекста при монтировании.
-  useEffect(() => {
-    setValues({
-      name: currentUser.name,
-      email: currentUser.email,
-    });
-  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -42,6 +39,16 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
         console.log(err);
       });
   };
+
+  useEffect(() => {
+    setValues({
+      name: currentUser.name,
+      email: currentUser.email,
+    });
+  }, [currentUser.email, currentUser.name, setValues]);
+  
+
+
   return (
     <>
       <section className="profile">
@@ -110,9 +117,9 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
               >
                 Редактировать
               </button>
-              <a href="/" className="profile__logout" onClick={handleLogout}>
+              <Link to={"/"} className="profile__logout" onClick={handleLogout}>
                 Выйти из аккаунта
-              </a>
+              </Link>
             </div>
           </form>
         </div>

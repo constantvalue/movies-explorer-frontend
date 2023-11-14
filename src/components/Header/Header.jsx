@@ -4,6 +4,7 @@ import logo from "../../images/logo_header.svg";
 import AccountButton from "../AccountButton/AccountButton";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 // костыльная реализация для этапа по верстке. Потом переделаю на стейты
 function openBurger() {
@@ -38,18 +39,18 @@ function Header({ headerDark, logoDark, buttonDark, loggedIn }) {
     <div className={`header ${headerDark}`}>
       <div className="header__container">
         <nav className="header__navigation">
-          <a className="header__logo-container" href="/">
+          <Link className="header__logo-container" to={"/"}>
             <img className="header__logo" src={logo} alt="Лого" />
-          </a>
+          </Link>
         </nav>
 
         <div className="header__register-container">
-          <a href="/signup" className="header__register-button">
+          <Link to={"/signup"} className="header__register-button">
             Регистрация
-          </a>
-          <a href="/signin" className="header__login-button">
+          </Link>
+          <Link to={"/signin"} className="header__login-button">
             Войти
-          </a>
+          </Link>
         </div>
       </div>
     </div>
@@ -59,17 +60,17 @@ function Header({ headerDark, logoDark, buttonDark, loggedIn }) {
     <div className={`header ${headerDark}`}>
       <div className="header__container">
         <nav className="header__navigation">
-          <a className="header__logo-container" href="/">
+          <Link className="header__logo-container" to={"/"}>
             <img className="header__logo" src={logo} alt="Лого" />
-          </a>
+          </Link>
 
           <ul className="header__navigation-container">
-            <a href="/movies" className="header__link">
+            <Link to={"/movies"} className="header__link">
               Фильмы
-            </a>
-            <a href="/saved-movies" className="header__link">
+            </Link>
+            <Link to={"/saved-movies"} className="header__link">
               Сохранённые фильмы
-            </a>
+            </Link>
           </ul>
         </nav>
         <AccountButton

@@ -1,6 +1,7 @@
 import "./BurgerMenu.css";
 import AccountButton from "../AccountButton/AccountButton";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 function BurgerMenu(props) {
   const location = useLocation();
@@ -20,24 +21,24 @@ function BurgerMenu(props) {
           onClick={onClick}
         ></button>
 
-        <a
-          href="/"
+        <Link
+          to={"/"}
           className={`burger-menu__link ${
             location.pathname === "/" ? "burger-menu__link_active" : ""
           }`}
         >
           Главная
-        </a>
-        <a
-          href="/movies"
+        </Link>
+        <Link
+          to={"/movies"}
           className={`burger-menu__link ${
             location.pathname === "/movies" ? "burger-menu__link_active" : ""
           }`}
         >
           Фильмы
-        </a>
-        <a
-          href="/saved-movies"
+        </Link>
+        <Link
+          to={"/saved-movies"}
           className={`burger-menu__link ${
             location.pathname === "/saved-movies"
               ? "burger-menu__link_active"
@@ -45,7 +46,7 @@ function BurgerMenu(props) {
           }`}
         >
           Сохранённые фильмы
-        </a>
+        </Link>
 
         <div className="burger-menu__account-button">
           <AccountButton

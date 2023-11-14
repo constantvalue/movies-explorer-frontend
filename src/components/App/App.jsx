@@ -22,7 +22,6 @@ function App() {
   //https://app.pachca.com/chats?thread_id=2247049 решение нашел тут.
   const [isLoading, setIsLoading] = useState(true);
   const [savedMovies, setSavedMovies] = useState([]);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,7 +32,6 @@ function App() {
         .then((res) => {
           setLoggedIn(true);
           setIsLoading(false);
-
           setCurrentUser({ _id: res._id, name: res.name, email: res.email });
         })
         .catch((error) => {
@@ -51,7 +49,7 @@ function App() {
     } else {
       setIsLoading(false);
     }
-  }, []);
+  }, [loggedIn]);
 
   const handlSetCurrentUser = (name, email) => {
     setCurrentUser(name, email);
@@ -137,9 +135,16 @@ function App() {
               />
               <Route
                 path="/signin"
-                element={<Login handleLogin={handleLogin} />}
+                element={
+                  <Login handleLogin={handleLogin} loggedIn={loggedIn} />
+                }
               />
-              <Route path="/signup" element={<Register />} />
+              <Route
+                path="/signup"
+                element={
+                  <Register handleLogin={handleLogin} loggedIn={loggedIn} />
+                }
+              />
             </Routes>
 
             {/* костыльная реализация. На следующем этапе переделаю */}

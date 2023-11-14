@@ -20,7 +20,6 @@ function MoviesCard({
     const handlePrefilter = savedMovies.filter((m) => {
       return m.movieId === movie.id;
     });
-    console.log(handlePrefilter);
     if (savedMovies.some((element) => movie.id === element.movieId)) {
       handleDeleteMovie(handlePrefilter[0]);
     } else {

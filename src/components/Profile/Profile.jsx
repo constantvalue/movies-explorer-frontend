@@ -19,8 +19,6 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
     isValid &&
     (values.name !== currentUser.name || values.email !== currentUser.email);
 
-    console.log(currentUser)
-
   //заполняю данные из контекста при монтировании.
 
   const handleSubmit = (e) => {
@@ -46,8 +44,6 @@ function Profile({ handleLogout, handlSetCurrentUser }) {
       email: currentUser.email,
     });
   }, [currentUser.email, currentUser.name, setValues]);
-  
-
 
   return (
     <>

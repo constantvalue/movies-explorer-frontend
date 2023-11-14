@@ -147,7 +147,6 @@ function App() {
               />
             </Routes>
 
-            {/* костыльная реализация. На следующем этапе переделаю */}
             <BurgerMenu logoDark="logo-dark" buttonDark="button-dark" />
           </CurrentUserContext.Provider>
         )}

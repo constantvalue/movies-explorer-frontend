@@ -1,0 +1,180 @@
+.aboutme {
+  background: #202020;
+  min-height: 654px;
+}
+
+.aboutme__container {
+  padding: 110px 70px 0;
+}
+
+.aboutme__title {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  /* text-decoration-line: underline; */
+  border-bottom: #dadada 1px solid;
+  padding-bottom: 23px;
+}
+
+.aboutme__bio {
+  padding-top: 66px;
+  display: grid;
+  grid-template-areas:
+    "a e"
+    "b e"
+    "c e"
+    "d e";
+  grid-template-columns: minmax(320px, 600px) 1fr;
+}
+
+.aboutme__student-name {
+  grid-area: a;
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px; /* 116% */
+  letter-spacing: -2px;
+}
+
+.aboutme__student-job {
+  padding-top: 18px;
+  grid-area: b;
+  margin: 0;
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+}
+
+.aboutme__student-description {
+  padding-top: 26px;
+  grid-area: c;
+  margin: 0;
+  color: #fff;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+}
+
+.aboutme__student-github {
+  width: fit-content;
+  margin-top: 99px;
+  grid-area: d;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-decoration: none;
+  align-self: self-end;
+}
+
+.aboutme__student-github:hover {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.aboutme__student-avatar {
+  grid-area: e;
+  justify-self: end;
+}
+
+@media screen and (max-width: 790px) {
+
+  .aboutme {
+    min-height: 604px;
+  }
+  .aboutme__container {
+    padding: 90px 50px 0;
+  }
+
+  .aboutme__student-name {
+    font-size: 40px;
+    margin-top: -8px;
+  }
+  .aboutme__student-job {
+    padding-top: 16px;
+    font-size: 12px;
+    margin-top: -51px;
+  }
+
+  .aboutme__student-description {
+    font-size: 12px;
+    margin-top: -67px;
+    line-height: 18px;
+  }
+
+  .aboutme__bio {
+    grid-template-columns: minmax(320px, 364px) 1fr;
+  }
+
+  .aboutme__student-github {
+    margin: 0 0 1px;
+  }
+
+  .aboutme__student-avatar {
+    max-width: 255px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+
+  .aboutme {
+    min-height: 904px;
+  }
+
+  .aboutme__title {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .aboutme__container {
+    padding: 70px 14px 0;
+  }
+
+  .aboutme__bio {
+    padding-top: 60px;
+    grid-template-areas:
+      "e"
+      "a"
+      "b"
+      "c"
+      "d";
+    grid-template-columns: auto;
+    grid-auto-rows: auto;
+    gap: 36px;
+  }
+  .aboutme__student-avatar {
+    min-width: 292px;
+    justify-self: center;
+  }
+
+  .aboutme__student-name {
+    font-size: 30px;
+  }
+  .aboutme__student-job {
+    margin-top: -45px;
+    font-size: 11px;
+  }
+
+  .aboutme__student-description {
+    line-height: 16px; /* 145.455% */
+    font-size: 11px;
+    margin-top: -52px;
+  }
+}

@@ -1,0 +1,118 @@
+.movie {
+  max-height: 281px;
+  border-radius: 6px;
+  background: #222;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.movie:hover .movie__delete-button {
+  visibility: visible;
+}
+
+.movie__description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 14px 16px 0px;
+}
+
+.movie__like-button {
+  background-color: transparent;
+  border: none;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  background-image: url(./../../../images/like__button.svg);
+  cursor: pointer;
+}
+
+.movie__like-button_active {
+  background-image: url(./../../../images/like__button-filled.svg);
+}
+
+.movie__like-button:hover {
+  transition: 0.5s;
+  background-image: url(./../../../images/like__button-filled.svg);
+}
+
+.movie__delete-button {
+  background-color: transparent;
+  border: none;
+  background-position: center 1px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  width: 30px;
+  height: 30px;
+  background-image: url(./../../../images/delete__button.svg);
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.movie__delete-button:hover {
+  transition: 0.5s;
+  opacity: 0.5;
+}
+
+.movie__title {
+  margin: 0;
+  color: #fff;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.movie__duration {
+  color: #8b8b8b;
+  font-family: "Inter", "Arial", sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 16px;
+  padding-bottom: 16px;
+}
+
+.movie__image {
+  height: 203px;
+  object-fit: cover;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  width: 364px;
+}
+
+@media screen and (max-width: 768px) {
+  .movie__duration {
+    padding-left: 14px;
+    padding-bottom: 14px;
+  }
+
+  .movie__description {
+    padding: 11px 14px 0px;
+  }
+
+  .movie__delete-button {
+    visibility: visible;
+  }
+
+  .movie__image {
+    height: 190px;
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .movie__duration {
+    padding-bottom: 10px;
+  }
+
+  .movie__image {
+    height: 168px;
+    width: 300px;
+  }
+}
